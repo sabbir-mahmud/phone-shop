@@ -16,6 +16,38 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -46,6 +78,31 @@
         "importPath": "django.db.models.manager",
         "description": "django.db.models.manager",
         "detail": "django.db.models.manager",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "django.db.models.deletion",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.db.models.deletion",
+        "description": "django.db.models.deletion",
+        "detail": "django.db.models.deletion",
         "documentation": {}
     },
     {
@@ -193,11 +250,27 @@
         "documentation": {}
     },
     {
-        "label": "render",
-        "importPath": "django.shortcuts",
-        "description": "django.shortcuts",
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
         "isExtraImport": true,
-        "detail": "django.shortcuts",
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "include",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
         "documentation": {}
     },
     {
@@ -214,6 +287,22 @@
         "description": "django.shortcuts",
         "isExtraImport": true,
         "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "View",
+        "importPath": "django.views",
+        "description": "django.views",
+        "isExtraImport": true,
+        "detail": "django.views",
         "documentation": {}
     },
     {
@@ -242,11 +331,11 @@
         "documentation": {}
     },
     {
-        "label": "path",
-        "importPath": "django.urls",
-        "description": "django.urls",
+        "label": "static",
+        "importPath": "django.conf.urls.static",
+        "description": "django.conf.urls.static",
         "isExtraImport": true,
-        "detail": "django.urls",
+        "detail": "django.conf.urls.static",
         "documentation": {}
     },
     {
@@ -276,11 +365,29 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "apps.authentications.migrations.0002_profile",
+        "description": "apps.authentications.migrations.0002_profile",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('authentications', '0001_initial'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Profile',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('name', models.CharField(max_length=245)),",
+        "detail": "apps.authentications.migrations.0002_profile",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "apps.authentications.migrations.0003_address_profile_address",
+        "description": "apps.authentications.migrations.0003_address_profile_address",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('authentications', '0002_profile'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Address',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('country', models.CharField(max_length=245)),",
+        "detail": "apps.authentications.migrations.0003_address_profile_address",
+        "documentation": {}
+    },
+    {
         "label": "UserAdmin",
         "kind": 6,
         "importPath": "apps.authentications.admin",
         "description": "apps.authentications.admin",
-        "peekOfCode": "class UserAdmin(BaseUserAdmin):\n    # The forms to add and change user instances\n    form = UserAdminChangeForm\n    add_form = UserAdminCreationForm\n    # The fields to be used in displaying the User model.\n    # These override the definitions on the base UserAdmin\n    # that reference specific fields on auth.User.\n    list_display = ['email', 'first_name', 'last_name', 'admin']\n    list_filter = ['admin']\n    fieldsets = (",
+        "peekOfCode": "class UserAdmin(BaseUserAdmin):\n    form = UserAdminChangeForm\n    add_form = UserAdminCreationForm\n    list_display = ['email', 'first_name', 'last_name', 'admin']\n    list_filter = ['admin']\n    fieldsets = (\n        (None, {'fields': ('email', 'password')}),\n        ('Personal info', {\n         'fields': ('first_name', 'last_name', 'gender')}),\n        ('Permissions', {'fields': ('staff', 'admin',)}),",
         "detail": "apps.authentications.admin",
         "documentation": {}
     },
@@ -289,7 +396,7 @@
         "kind": 5,
         "importPath": "apps.authentications.admin",
         "description": "apps.authentications.admin",
-        "peekOfCode": "User = get_user_model()\n# unregister group model\nadmin.site.unregister(Group)\n@admin.register(User)\nclass UserAdmin(BaseUserAdmin):\n    # The forms to add and change user instances\n    form = UserAdminChangeForm\n    add_form = UserAdminCreationForm\n    # The fields to be used in displaying the User model.\n    # These override the definitions on the base UserAdmin",
+        "peekOfCode": "User = get_user_model()\n# unregister group model\nadmin.site.unregister(Group)\n@admin.register(User)\nclass UserAdmin(BaseUserAdmin):\n    form = UserAdminChangeForm\n    add_form = UserAdminCreationForm\n    list_display = ['email', 'first_name', 'last_name', 'admin']\n    list_filter = ['admin']\n    fieldsets = (",
         "detail": "apps.authentications.admin",
         "documentation": {}
     },
@@ -354,6 +461,51 @@
         "description": "apps.authentications.models",
         "peekOfCode": "class User(AbstractBaseUser):\n    genders = (\n        ('Male', 'Male'),\n        ('Female', 'Female'),\n        ('Others', 'Others'),\n    )\n    email = models.EmailField(max_length=245, unique=True)\n    first_name = models.CharField(max_length=245)\n    last_name = models.CharField(max_length=245)\n    gender = models.CharField(max_length=245, choices=genders)",
         "detail": "apps.authentications.models",
+        "documentation": {}
+    },
+    {
+        "label": "Address",
+        "kind": 6,
+        "importPath": "apps.authentications.models",
+        "description": "apps.authentications.models",
+        "peekOfCode": "class Address(models.Model):\n    country = models.CharField(max_length=245)\n    state = models.CharField(max_length=245)\n    city = models.CharField(max_length=245)\n    street = models.CharField(max_length=245)\n    postal = models.CharField(max_length=245)\n    def __str__(self) -> str:\n        return self.street\nclass Profile(models.Model):\n    user = models.OneToOneField(User, on_delete=models.CASCADE)",
+        "detail": "apps.authentications.models",
+        "documentation": {}
+    },
+    {
+        "label": "Profile",
+        "kind": 6,
+        "importPath": "apps.authentications.models",
+        "description": "apps.authentications.models",
+        "peekOfCode": "class Profile(models.Model):\n    user = models.OneToOneField(User, on_delete=models.CASCADE)\n    name = models.CharField(max_length=245)\n    image = models.ImageField(upload_to=\"Profile\", null=True, blank=True)\n    address = models.OneToOneField(\n        Address, on_delete=models.CASCADE, null=True, blank=True)\n    def __str__(self) -> str:\n        return self.name",
+        "detail": "apps.authentications.models",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "apps.authentications.urls",
+        "description": "apps.authentications.urls",
+        "peekOfCode": "urlpatterns = [\n    path('register/', views.RegisterView.as_view(), name=\"register\"),\n    path('login/', views.LoginView.as_view(), name=\"login\"),\n]",
+        "detail": "apps.authentications.urls",
+        "documentation": {}
+    },
+    {
+        "label": "RegisterView",
+        "kind": 6,
+        "importPath": "apps.authentications.views",
+        "description": "apps.authentications.views",
+        "peekOfCode": "class RegisterView(View):\n    def get(self, request):\n        return render(request, \"auth/register.html\")\nclass LoginView(View):\n    def get(self, request):\n        return render(request, \"auth/login.html\")",
+        "detail": "apps.authentications.views",
+        "documentation": {}
+    },
+    {
+        "label": "LoginView",
+        "kind": 6,
+        "importPath": "apps.authentications.views",
+        "description": "apps.authentications.views",
+        "peekOfCode": "class LoginView(View):\n    def get(self, request):\n        return render(request, \"auth/login.html\")",
+        "detail": "apps.authentications.views",
         "documentation": {}
     },
     {
@@ -451,7 +603,7 @@
         "kind": 5,
         "importPath": "core.settings",
         "description": "core.settings",
-        "peekOfCode": "ROOT_URLCONF = 'core.urls'\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',",
+        "peekOfCode": "ROOT_URLCONF = 'core.urls'\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [BASE_DIR / 'templates'],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',",
         "detail": "core.settings",
         "documentation": {}
     },
@@ -460,7 +612,7 @@
         "kind": 5,
         "importPath": "core.settings",
         "description": "core.settings",
-        "peekOfCode": "TEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',\n                'django.contrib.auth.context_processors.auth',",
+        "peekOfCode": "TEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [BASE_DIR / 'templates'],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',\n                'django.contrib.auth.context_processors.auth',",
         "detail": "core.settings",
         "documentation": {}
     },
@@ -496,7 +648,7 @@
         "kind": 5,
         "importPath": "core.settings",
         "description": "core.settings",
-        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]\nSTATIC_ROOT = os.path.join(BASE_DIR, 'statics')\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')",
         "detail": "core.settings",
         "documentation": {}
     },
@@ -505,7 +657,7 @@
         "kind": 5,
         "importPath": "core.settings",
         "description": "core.settings",
-        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]\nSTATIC_ROOT = os.path.join(BASE_DIR, 'statics')\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\nMEDIA_URL = '/media/'",
         "detail": "core.settings",
         "documentation": {}
     },
@@ -514,7 +666,7 @@
         "kind": 5,
         "importPath": "core.settings",
         "description": "core.settings",
-        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]\nSTATIC_ROOT = os.path.join(BASE_DIR, 'statics')\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\nMEDIA_URL = '/media/'\n# Default primary key field type",
         "detail": "core.settings",
         "documentation": {}
     },
@@ -523,7 +675,7 @@
         "kind": 5,
         "importPath": "core.settings",
         "description": "core.settings",
-        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]\nSTATIC_ROOT = os.path.join(BASE_DIR, 'statics')\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\nMEDIA_URL = '/media/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field",
         "detail": "core.settings",
         "documentation": {}
     },
@@ -532,7 +684,43 @@
         "kind": 5,
         "importPath": "core.settings",
         "description": "core.settings",
-        "peekOfCode": "STATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "STATIC_URL = 'static/'\nSTATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]\nSTATIC_ROOT = os.path.join(BASE_DIR, 'statics')\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\nMEDIA_URL = '/media/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "core.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATICFILES_DIRS",
+        "kind": 5,
+        "importPath": "core.settings",
+        "description": "core.settings",
+        "peekOfCode": "STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]\nSTATIC_ROOT = os.path.join(BASE_DIR, 'statics')\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\nMEDIA_URL = '/media/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "core.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATIC_ROOT",
+        "kind": 5,
+        "importPath": "core.settings",
+        "description": "core.settings",
+        "peekOfCode": "STATIC_ROOT = os.path.join(BASE_DIR, 'statics')\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\nMEDIA_URL = '/media/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "core.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_ROOT",
+        "kind": 5,
+        "importPath": "core.settings",
+        "description": "core.settings",
+        "peekOfCode": "MEDIA_ROOT = os.path.join(BASE_DIR, 'media')\nMEDIA_URL = '/media/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "core.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_URL",
+        "kind": 5,
+        "importPath": "core.settings",
+        "description": "core.settings",
+        "peekOfCode": "MEDIA_URL = '/media/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
         "detail": "core.settings",
         "documentation": {}
     },
@@ -550,7 +738,7 @@
         "kind": 5,
         "importPath": "core.urls",
         "description": "core.urls",
-        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n]",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path(\"auth/\", include('apps.authentications.urls'))\n]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)",
         "detail": "core.urls",
         "documentation": {}
     },

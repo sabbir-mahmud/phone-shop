@@ -66,3 +66,25 @@ class User(AbstractBaseUser):
             return True
         else:
             return False
+
+
+class Address(models.Model):
+    country = models.CharField(max_length=245)
+    state = models.CharField(max_length=245)
+    city = models.CharField(max_length=245)
+    street = models.CharField(max_length=245)
+    postal = models.CharField(max_length=245)
+
+    def __str__(self) -> str:
+        return self.street
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=245)
+    image = models.ImageField(upload_to="Profile", null=True, blank=True)
+    address = models.OneToOneField(
+        Address, on_delete=models.CASCADE, null=True, blank=True)
+
+    def __str__(self) -> str:
+        return self.name
