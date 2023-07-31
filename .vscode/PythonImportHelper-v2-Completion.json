@@ -96,6 +96,22 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -370,6 +386,14 @@
         "documentation": {}
     },
     {
+        "label": "Paginator",
+        "importPath": "django.core.paginator",
+        "description": "django.core.paginator",
+        "isExtraImport": true,
+        "detail": "django.core.paginator",
+        "documentation": {}
+    },
+    {
         "label": "os",
         "kind": 6,
         "isExtraImport": true,
@@ -600,6 +624,15 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "apps.shop.migrations.0003_phone_dp",
+        "description": "apps.shop.migrations.0003_phone_dp",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('shop', '0002_order_cart'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='phone',\n            name='dp',\n            field=models.ImageField(default='shop/gallery/Apple-iPhone-8-Plus-Gold.jpg', upload_to='shop/gallery'),\n        ),",
+        "detail": "apps.shop.migrations.0003_phone_dp",
+        "documentation": {}
+    },
+    {
         "label": "ShopConfig",
         "kind": 6,
         "importPath": "apps.shop.apps",
@@ -613,7 +646,7 @@
         "kind": 6,
         "importPath": "apps.shop.models",
         "description": "apps.shop.models",
-        "peekOfCode": "class Wrapper(models.Model):\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\nclass Brand(Wrapper):\n    name = models.CharField(max_length=100)\n    def __str__(self) -> str:\n        return self.name\nclass Phone(Wrapper):\n    brand_name = models.ForeignKey(Brand, on_delete=models.CASCADE)\n    model = models.CharField(max_length=50)",
+        "peekOfCode": "class Wrapper(models.Model):\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\nclass Brand(Wrapper):\n    name = models.CharField(max_length=100)\n    def __str__(self) -> str:\n        return self.name\nclass Phone(Wrapper):\n    brand_name = models.ForeignKey(Brand, on_delete=models.CASCADE)\n    dp = models.ImageField(upload_to=\"shop/gallery\",",
         "detail": "apps.shop.models",
         "documentation": {}
     },
@@ -622,7 +655,7 @@
         "kind": 6,
         "importPath": "apps.shop.models",
         "description": "apps.shop.models",
-        "peekOfCode": "class Brand(Wrapper):\n    name = models.CharField(max_length=100)\n    def __str__(self) -> str:\n        return self.name\nclass Phone(Wrapper):\n    brand_name = models.ForeignKey(Brand, on_delete=models.CASCADE)\n    model = models.CharField(max_length=50)\n    colors = models.CharField(max_length=50)\n    highlights = models.CharField(max_length=1000)\n    price = models.DecimalField(max_digits=10, decimal_places=2)",
+        "peekOfCode": "class Brand(Wrapper):\n    name = models.CharField(max_length=100)\n    def __str__(self) -> str:\n        return self.name\nclass Phone(Wrapper):\n    brand_name = models.ForeignKey(Brand, on_delete=models.CASCADE)\n    dp = models.ImageField(upload_to=\"shop/gallery\",\n                           default=\"shop/gallery/Apple-iPhone-8-Plus-Gold.jpg\")\n    model = models.CharField(max_length=50)\n    colors = models.CharField(max_length=50)",
         "detail": "apps.shop.models",
         "documentation": {}
     },
@@ -631,7 +664,7 @@
         "kind": 6,
         "importPath": "apps.shop.models",
         "description": "apps.shop.models",
-        "peekOfCode": "class Phone(Wrapper):\n    brand_name = models.ForeignKey(Brand, on_delete=models.CASCADE)\n    model = models.CharField(max_length=50)\n    colors = models.CharField(max_length=50)\n    highlights = models.CharField(max_length=1000)\n    price = models.DecimalField(max_digits=10, decimal_places=2)\n    discount_price = models.DecimalField(\n        max_digits=10, decimal_places=2)\n    def __str__(self) -> str:\n        return self.model",
+        "peekOfCode": "class Phone(Wrapper):\n    brand_name = models.ForeignKey(Brand, on_delete=models.CASCADE)\n    dp = models.ImageField(upload_to=\"shop/gallery\",\n                           default=\"shop/gallery/Apple-iPhone-8-Plus-Gold.jpg\")\n    model = models.CharField(max_length=50)\n    colors = models.CharField(max_length=50)\n    highlights = models.CharField(max_length=1000)\n    price = models.DecimalField(max_digits=10, decimal_places=2)\n    discount_price = models.DecimalField(\n        max_digits=10, decimal_places=2)",
         "detail": "apps.shop.models",
         "documentation": {}
     },
@@ -685,7 +718,7 @@
         "kind": 6,
         "importPath": "apps.shop.views",
         "description": "apps.shop.views",
-        "peekOfCode": "class Home(View):\n    def get(self, request):\n        return render(request, 'shop/home.html')",
+        "peekOfCode": "class Home(View):\n    def get(self, request):\n        phones = Phone.objects.all().order_by(\"-id\")\n        paginator = Paginator(phones, 25)\n        page_number = request.GET.get('paginator')\n        phones = paginator.get_page(page_number)\n        context = {\n            \"phones\": phones\n        }\n        return render(request, 'shop/home.html', context)",
         "detail": "apps.shop.views",
         "documentation": {}
     },

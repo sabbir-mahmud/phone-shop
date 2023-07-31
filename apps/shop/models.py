@@ -18,6 +18,8 @@ class Brand(Wrapper):
 
 class Phone(Wrapper):
     brand_name = models.ForeignKey(Brand, on_delete=models.CASCADE)
+    dp = models.ImageField(upload_to="shop/gallery",
+                           default="shop/gallery/Apple-iPhone-8-Plus-Gold.jpg")
     model = models.CharField(max_length=50)
     colors = models.CharField(max_length=50)
     highlights = models.CharField(max_length=1000)
