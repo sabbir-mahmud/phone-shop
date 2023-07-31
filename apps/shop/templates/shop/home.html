@@ -14,7 +14,7 @@
         <h5 class="card-title">{{phone.brand_name.name}} {{phone.model}}</h5>
         <p class="card-text">Regullar Price: {{phone.price}}</p>
         <p class="card-text">Special Price: {{phone.discount_price}}</p>
-        <a href="#" class="btn btn-primary">Add To Cart</a>
+        <a href="{% url 'add-to-cart' phone.id %}" class="btn btn-primary">Add To Cart</a>
       </div>
     </div>
 

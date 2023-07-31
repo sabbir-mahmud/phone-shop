@@ -48,22 +48,6 @@
         "documentation": {}
     },
     {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
         "label": "migrations",
         "importPath": "django.db",
         "description": "django.db",
@@ -73,14 +57,6 @@
     },
     {
         "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
         "importPath": "django.db",
         "description": "django.db",
         "isExtraImport": true,
@@ -250,6 +226,14 @@
         "documentation": {}
     },
     {
+        "label": "get_user_model",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
         "label": "UserAdmin",
         "importPath": "django.contrib.auth.admin",
         "description": "django.contrib.auth.admin",
@@ -402,6 +386,14 @@
         "documentation": {}
     },
     {
+        "label": "redirect",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
         "label": "render",
         "importPath": "django.shortcuts",
         "description": "django.shortcuts",
@@ -431,6 +423,22 @@
         "description": "django.core.paginator",
         "isExtraImport": true,
         "detail": "django.core.paginator",
+        "documentation": {}
+    },
+    {
+        "label": "Q",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "carts",
+        "importPath": "apps.shop.context_processor",
+        "description": "apps.shop.context_processor",
+        "isExtraImport": true,
+        "detail": "apps.shop.context_processor",
         "documentation": {}
     },
     {
@@ -508,6 +516,15 @@
         "description": "apps.authentications.migrations.0003_address_profile_address",
         "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('authentications', '0002_profile'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Address',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('country', models.CharField(max_length=245)),",
         "detail": "apps.authentications.migrations.0003_address_profile_address",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "apps.authentications.migrations.0004_alter_user_managers",
+        "description": "apps.authentications.migrations.0004_alter_user_managers",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('authentications', '0003_address_profile_address'),\n    ]\n    operations = [\n        migrations.AlterModelManagers(\n            name='user',\n            managers=[\n            ],\n        ),",
+        "detail": "apps.authentications.migrations.0004_alter_user_managers",
         "documentation": {}
     },
     {
@@ -659,26 +676,8 @@
         "kind": 6,
         "importPath": "apps.shop.migrations.0001_initial",
         "description": "apps.shop.migrations.0001_initial",
-        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Wrapper',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('created_at', models.DateTimeField(auto_now_add=True)),",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Brand',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),",
         "detail": "apps.shop.migrations.0001_initial",
-        "documentation": {}
-    },
-    {
-        "label": "Migration",
-        "kind": 6,
-        "importPath": "apps.shop.migrations.0002_order_cart",
-        "description": "apps.shop.migrations.0002_order_cart",
-        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n        ('shop', '0001_initial'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Order',\n            fields=[\n                ('wrapper_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='shop.wrapper')),",
-        "detail": "apps.shop.migrations.0002_order_cart",
-        "documentation": {}
-    },
-    {
-        "label": "Migration",
-        "kind": 6,
-        "importPath": "apps.shop.migrations.0003_phone_dp",
-        "description": "apps.shop.migrations.0003_phone_dp",
-        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('shop', '0002_order_cart'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='phone',\n            name='dp',\n            field=models.ImageField(default='shop/gallery/Apple-iPhone-8-Plus-Gold.jpg', upload_to='shop/gallery'),\n        ),",
-        "detail": "apps.shop.migrations.0003_phone_dp",
         "documentation": {}
     },
     {
@@ -691,11 +690,20 @@
         "documentation": {}
     },
     {
+        "label": "carts",
+        "kind": 2,
+        "importPath": "apps.shop.context_processor",
+        "description": "apps.shop.context_processor",
+        "peekOfCode": "def carts(request):\n    count = 0\n    if Cart.objects.all().exists():\n        count = Cart.objects.filter(user_id=request.user).count()\n    return {\"count\": count}",
+        "detail": "apps.shop.context_processor",
+        "documentation": {}
+    },
+    {
         "label": "Wrapper",
         "kind": 6,
         "importPath": "apps.shop.models",
         "description": "apps.shop.models",
-        "peekOfCode": "class Wrapper(models.Model):\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\nclass Brand(Wrapper):\n    name = models.CharField(max_length=100)\n    def __str__(self) -> str:\n        return self.name\nclass Phone(Wrapper):\n    brand_name = models.ForeignKey(Brand, on_delete=models.CASCADE)\n    dp = models.ImageField(upload_to=\"shop/gallery\",",
+        "peekOfCode": "class Wrapper(models.Model):\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    class Meta:\n        abstract = True\nclass Brand(Wrapper):\n    name = models.CharField(max_length=100)\n    def __str__(self) -> str:\n        return self.name\nclass Phone(Wrapper):",
         "detail": "apps.shop.models",
         "documentation": {}
     },
@@ -740,7 +748,7 @@
         "kind": 6,
         "importPath": "apps.shop.models",
         "description": "apps.shop.models",
-        "peekOfCode": "class Order(Wrapper):\n    phone_id = models.ForeignKey(Phone, on_delete=models.CASCADE)\n    user_id = models.ForeignKey(User, on_delete=models.CASCADE)\n    quantity = models.IntegerField()\n    amount = models.DecimalField(max_digits=10, decimal_places=2)\n    amount_charged = models.DecimalField(max_digits=10, decimal_places=2)\n    discount = models.DecimalField(max_digits=10, decimal_places=2)\n    def __str__(self) -> str:\n        return str(self.id)",
+        "peekOfCode": "class Order(Wrapper):\n    phone_id = models.ForeignKey(Phone, on_delete=models.CASCADE)\n    user_id = models.ForeignKey(User, on_delete=models.CASCADE)\n    quantity = models.IntegerField()\n    amount = models.DecimalField(max_digits=10, decimal_places=2)\n    amount_charged = models.DecimalField(max_digits=10, decimal_places=2)\n    discount = models.DecimalField(max_digits=10, decimal_places=2)\n    delivery_charge = models.DecimalField(\n        max_digits=10, decimal_places=2, default=100)\n    def __str__(self) -> str:",
         "detail": "apps.shop.models",
         "documentation": {}
     },
@@ -749,7 +757,7 @@
         "kind": 5,
         "importPath": "apps.shop.models",
         "description": "apps.shop.models",
-        "peekOfCode": "User = get_user_model()\nclass Wrapper(models.Model):\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\nclass Brand(Wrapper):\n    name = models.CharField(max_length=100)\n    def __str__(self) -> str:\n        return self.name\nclass Phone(Wrapper):\n    brand_name = models.ForeignKey(Brand, on_delete=models.CASCADE)",
+        "peekOfCode": "User = get_user_model()\nclass Wrapper(models.Model):\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    class Meta:\n        abstract = True\nclass Brand(Wrapper):\n    name = models.CharField(max_length=100)\n    def __str__(self) -> str:\n        return self.name",
         "detail": "apps.shop.models",
         "documentation": {}
     },
@@ -758,7 +766,7 @@
         "kind": 5,
         "importPath": "apps.shop.urls",
         "description": "apps.shop.urls",
-        "peekOfCode": "urlpatterns = [\n    path('', views.Home.as_view(), name=\"home\")\n]",
+        "peekOfCode": "urlpatterns = [\n    path('', views.Home.as_view(), name=\"home\"),\n    path('add-to-cart/<str:pk>/', views.AddToCarT.as_view(), name=\"add-to-cart\")\n]",
         "detail": "apps.shop.urls",
         "documentation": {}
     },
@@ -767,7 +775,52 @@
         "kind": 6,
         "importPath": "apps.shop.views",
         "description": "apps.shop.views",
-        "peekOfCode": "class Home(View):\n    def get(self, request):\n        phones = Phone.objects.all().order_by(\"-id\")\n        paginator = Paginator(phones, 25)\n        page_number = request.GET.get('paginator')\n        phones = paginator.get_page(page_number)\n        context = {\n            \"phones\": phones\n        }\n        return render(request, 'shop/home.html', context)",
+        "peekOfCode": "class Home(View):\n    def get(self, request):\n        phones = Phone.objects.all().order_by(\"-id\")[:9]\n        context = {\n            \"phones\": phones\n        }\n        return render(request, 'shop/home.html', context)\nclass AddToCarT(View):\n    def get(self, request, pk):\n        phone = Phone.objects.get(id=pk)",
+        "detail": "apps.shop.views",
+        "documentation": {}
+    },
+    {
+        "label": "AddToCarT",
+        "kind": 6,
+        "importPath": "apps.shop.views",
+        "description": "apps.shop.views",
+        "peekOfCode": "class AddToCarT(View):\n    def get(self, request, pk):\n        phone = Phone.objects.get(id=pk)\n        user = User.objects.get(id=request.user.id)\n        cart = Cart.objects.filter(\n            Q(phone_id=phone.id) & Q(user_id=user.id)).exists()\n        if cart:\n            cart = Cart.objects.get(Q(phone_id=phone.id) & Q(user_id=user.id))\n            cart.quantity += 1\n            cart.save()",
+        "detail": "apps.shop.views",
+        "documentation": {}
+    },
+    {
+        "label": "get_all_carts",
+        "kind": 2,
+        "importPath": "apps.shop.views",
+        "description": "apps.shop.views",
+        "peekOfCode": "def get_all_carts(request):\n    carts = Cart.objects.get(user_id=request.user.id)\n    context = {\n        \"carts\": carts\n    }\n    return render(request, 'shop/carts.html', context)\ndef remove_quantity(request, pk):\n    cart = Cart.objects.get(id=pk)\n    cart.quantity -= 1\n    cart.save()",
+        "detail": "apps.shop.views",
+        "documentation": {}
+    },
+    {
+        "label": "remove_quantity",
+        "kind": 2,
+        "importPath": "apps.shop.views",
+        "description": "apps.shop.views",
+        "peekOfCode": "def remove_quantity(request, pk):\n    cart = Cart.objects.get(id=pk)\n    cart.quantity -= 1\n    cart.save()\n    return redirect(\"/\")\ndef remove_from_cart(request, pk):\n    cart = Cart.objects.get(id=pk)\n    cart.delete()\n    return redirect(\"/\")",
+        "detail": "apps.shop.views",
+        "documentation": {}
+    },
+    {
+        "label": "remove_from_cart",
+        "kind": 2,
+        "importPath": "apps.shop.views",
+        "description": "apps.shop.views",
+        "peekOfCode": "def remove_from_cart(request, pk):\n    cart = Cart.objects.get(id=pk)\n    cart.delete()\n    return redirect(\"/\")",
+        "detail": "apps.shop.views",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "kind": 5,
+        "importPath": "apps.shop.views",
+        "description": "apps.shop.views",
+        "peekOfCode": "User = get_user_model()\nclass Home(View):\n    def get(self, request):\n        phones = Phone.objects.all().order_by(\"-id\")[:9]\n        context = {\n            \"phones\": phones\n        }\n        return render(request, 'shop/home.html', context)\nclass AddToCarT(View):\n    def get(self, request, pk):",
         "detail": "apps.shop.views",
         "documentation": {}
     },
