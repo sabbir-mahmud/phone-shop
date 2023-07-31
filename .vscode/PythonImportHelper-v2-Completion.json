@@ -170,6 +170,14 @@
         "documentation": {}
     },
     {
+        "label": "messages",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
         "label": "admin",
         "importPath": "django.contrib",
         "description": "django.contrib",
@@ -203,6 +211,30 @@
     },
     {
         "label": "get_user_model",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "authenticate",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "login",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "logout",
         "importPath": "django.contrib.auth",
         "description": "django.contrib.auth",
         "isExtraImport": true,
@@ -343,6 +375,14 @@
         "description": "django.urls",
         "isExtraImport": true,
         "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
         "documentation": {}
     },
     {
@@ -502,7 +542,7 @@
         "kind": 6,
         "importPath": "apps.authentications.forms",
         "description": "apps.authentications.forms",
-        "peekOfCode": "class RegisterForm(forms.ModelForm):\n    password = forms.CharField(widget=forms.PasswordInput())\n    password2 = forms.CharField(\n        widget=forms.PasswordInput(), label='Confirm Password')\n    class Meta:\n        model = User\n        fields = [\n            'email', 'first_name', 'last_name', 'gender'\n        ]\n    def clean(self):",
+        "peekOfCode": "class RegisterForm(forms.ModelForm):\n    password = forms.CharField(\n        widget=forms.PasswordInput(attrs={\"class\": \"form-control\"}))\n    password2 = forms.CharField(\n        widget=forms.PasswordInput(attrs={\"class\": \"form-control\"}), label='Confirm Password')\n    class Meta:\n        model = User\n        fields = [\n            'email', 'first_name', 'last_name', 'gender'\n        ]",
         "detail": "apps.authentications.forms",
         "documentation": {}
     },
@@ -529,7 +569,7 @@
         "kind": 5,
         "importPath": "apps.authentications.forms",
         "description": "apps.authentications.forms",
-        "peekOfCode": "User = get_user_model()\nclass RegisterForm(forms.ModelForm):\n    password = forms.CharField(widget=forms.PasswordInput())\n    password2 = forms.CharField(\n        widget=forms.PasswordInput(), label='Confirm Password')\n    class Meta:\n        model = User\n        fields = [\n            'email', 'first_name', 'last_name', 'gender'\n        ]",
+        "peekOfCode": "User = get_user_model()\nclass RegisterForm(forms.ModelForm):\n    password = forms.CharField(\n        widget=forms.PasswordInput(attrs={\"class\": \"form-control\"}))\n    password2 = forms.CharField(\n        widget=forms.PasswordInput(attrs={\"class\": \"form-control\"}), label='Confirm Password')\n    class Meta:\n        model = User\n        fields = [\n            'email', 'first_name', 'last_name', 'gender'",
         "detail": "apps.authentications.forms",
         "documentation": {}
     },
@@ -574,7 +614,7 @@
         "kind": 5,
         "importPath": "apps.authentications.urls",
         "description": "apps.authentications.urls",
-        "peekOfCode": "urlpatterns = [\n    path('register/', views.RegisterView.as_view(), name=\"register\"),\n    path('login/', views.LoginView.as_view(), name=\"login\"),\n]",
+        "peekOfCode": "urlpatterns = [\n    path('register/', views.RegisterView.as_view(), name=\"register\"),\n    path('login/', views.LoginView.as_view(), name=\"login\"),\n    path('logout/', views.logoutView, name=\"logout\"),\n]",
         "detail": "apps.authentications.urls",
         "documentation": {}
     },
@@ -583,7 +623,7 @@
         "kind": 6,
         "importPath": "apps.authentications.views",
         "description": "apps.authentications.views",
-        "peekOfCode": "class RegisterView(View):\n    def get(self, request):\n        return render(request, \"auth/register.html\")\nclass LoginView(View):\n    def get(self, request):\n        return render(request, \"auth/login.html\")",
+        "peekOfCode": "class RegisterView(View):\n    def get(self, request):\n        forms = RegisterForm()\n        context = {\n            \"forms\": forms\n        }\n        return render(request, \"auth/register.html\", context)\n    def post(self, request):\n        print(request.POST)\n        forms = RegisterForm(request.POST)",
         "detail": "apps.authentications.views",
         "documentation": {}
     },
@@ -592,7 +632,16 @@
         "kind": 6,
         "importPath": "apps.authentications.views",
         "description": "apps.authentications.views",
-        "peekOfCode": "class LoginView(View):\n    def get(self, request):\n        return render(request, \"auth/login.html\")",
+        "peekOfCode": "class LoginView(View):\n    def get(self, request):\n        return render(request, \"auth/login.html\")\n    def post(self, request):\n        email = request.POST.get(\"email\")\n        password = request.POST.get(\"password\")\n        user = authenticate(email=email, password=password)\n        if user is not None:\n            login(request, user)\n            messages.info(request, \"successfully login\")",
+        "detail": "apps.authentications.views",
+        "documentation": {}
+    },
+    {
+        "label": "logoutView",
+        "kind": 2,
+        "importPath": "apps.authentications.views",
+        "description": "apps.authentications.views",
+        "peekOfCode": "def logoutView(request):\n    logout(request)\n    return redirect(\"login\")",
         "detail": "apps.authentications.views",
         "documentation": {}
     },

@@ -9,6 +9,7 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/e5416ca5c5.js" crossorigin="anonymous"></script>
   {% block Head %}{% endblock Head %}
+
 </head>
 
 <body>
@@ -16,7 +17,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
       <a class="navbar-brand" href="#">
-       Phone Shop
+        Phone Shop
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,10 +31,11 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Carts</a>
           </li>
+          {% if request.user.is_authenticated %}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
-              Dropdown
+              {{request.user.first_name}}
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="#">Action</a></li>
@@ -41,9 +43,17 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item" href="{% url 'logout' %}">Log out</a></li>
+              
             </ul>
           </li>
+
+          {% else %}
+          <li class="nav-item">
+            <a class="btn btn-primary" href="{% url 'login' %}">Login</a>
+          </li>
+          
+          {% endif %}
         </ul>
       </div>
     </div>

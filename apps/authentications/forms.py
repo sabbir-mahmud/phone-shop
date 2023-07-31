@@ -6,15 +6,21 @@ User = get_user_model()
 
 
 class RegisterForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput())
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={"class": "form-control"}))
     password2 = forms.CharField(
-        widget=forms.PasswordInput(), label='Confirm Password')
+        widget=forms.PasswordInput(attrs={"class": "form-control"}), label='Confirm Password')
 
     class Meta:
         model = User
         fields = [
             'email', 'first_name', 'last_name', 'gender'
         ]
+        widgets = {'email': forms.EmailInput(
+            attrs={"class": "form-control"}), 'first_name': forms.TextInput(
+            attrs={"class": "form-control"}), 'last_name': forms.TextInput(
+            attrs={"class": "form-control"}), 'gender': forms.Select(
+            attrs={"class": "form-control"}), }
 
     def clean(self):
         cleaned_data = super().clean()
