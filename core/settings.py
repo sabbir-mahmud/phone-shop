@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.authentications',
     'apps.customers',
-    'apps.shop',
+    'apps.shop.apps.ShopConfig',
 ]
 
 AUTH_USER_MODEL = 'authentications.User'

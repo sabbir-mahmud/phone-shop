@@ -1,110 +1,5 @@
 [
     {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "django.db.models.manager",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "django.db.models.manager",
-        "description": "django.db.models.manager",
-        "detail": "django.db.models.manager",
-        "documentation": {}
-    },
-    {
         "label": "settings",
         "importPath": "django.conf",
         "description": "django.conf",
@@ -126,6 +21,78 @@
         "description": "django.conf",
         "isExtraImport": true,
         "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
         "documentation": {}
     },
     {
@@ -418,6 +385,14 @@
         "documentation": {}
     },
     {
+        "label": "post_save",
+        "importPath": "django.db.models.signals",
+        "description": "django.db.models.signals",
+        "isExtraImport": true,
+        "detail": "django.db.models.signals",
+        "documentation": {}
+    },
+    {
         "label": "Paginator",
         "importPath": "django.core.paginator",
         "description": "django.core.paginator",
@@ -498,33 +473,6 @@
         "description": "apps.authentications.migrations.0001_initial",
         "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='User',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('password', models.CharField(max_length=128, verbose_name='password')),",
         "detail": "apps.authentications.migrations.0001_initial",
-        "documentation": {}
-    },
-    {
-        "label": "Migration",
-        "kind": 6,
-        "importPath": "apps.authentications.migrations.0002_profile",
-        "description": "apps.authentications.migrations.0002_profile",
-        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('authentications', '0001_initial'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Profile',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('name', models.CharField(max_length=245)),",
-        "detail": "apps.authentications.migrations.0002_profile",
-        "documentation": {}
-    },
-    {
-        "label": "Migration",
-        "kind": 6,
-        "importPath": "apps.authentications.migrations.0003_address_profile_address",
-        "description": "apps.authentications.migrations.0003_address_profile_address",
-        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('authentications', '0002_profile'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Address',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('country', models.CharField(max_length=245)),",
-        "detail": "apps.authentications.migrations.0003_address_profile_address",
-        "documentation": {}
-    },
-    {
-        "label": "Migration",
-        "kind": 6,
-        "importPath": "apps.authentications.migrations.0004_alter_user_managers",
-        "description": "apps.authentications.migrations.0004_alter_user_managers",
-        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('authentications', '0003_address_profile_address'),\n    ]\n    operations = [\n        migrations.AlterModelManagers(\n            name='user',\n            managers=[\n            ],\n        ),",
-        "detail": "apps.authentications.migrations.0004_alter_user_managers",
         "documentation": {}
     },
     {
@@ -681,11 +629,20 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "apps.shop.migrations.0002_cart_sub_total",
+        "description": "apps.shop.migrations.0002_cart_sub_total",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('shop', '0001_initial'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='cart',\n            name='sub_total',\n            field=models.DecimalField(decimal_places=2, default=100, max_digits=10),\n        ),",
+        "detail": "apps.shop.migrations.0002_cart_sub_total",
+        "documentation": {}
+    },
+    {
         "label": "ShopConfig",
         "kind": 6,
         "importPath": "apps.shop.apps",
         "description": "apps.shop.apps",
-        "peekOfCode": "class ShopConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'apps.shop'",
+        "peekOfCode": "class ShopConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'apps.shop'\n    def ready(self):\n        import apps.shop.signals",
         "detail": "apps.shop.apps",
         "documentation": {}
     },
@@ -730,7 +687,7 @@
         "kind": 6,
         "importPath": "apps.shop.models",
         "description": "apps.shop.models",
-        "peekOfCode": "class Images(Wrapper):\n    phone_id = models.ForeignKey(Phone, on_delete=models.CASCADE)\n    img = models.ImageField(upload_to=\"shop/gallery\")\n    def __str__(self) -> str:\n        return str(self.img)\nclass Cart(Wrapper):\n    phone_id = models.ForeignKey(Phone, on_delete=models.CASCADE)\n    user_id = models.ForeignKey(User, on_delete=models.CASCADE)\n    quantity = models.IntegerField()\n    def __str__(self) -> str:",
+        "peekOfCode": "class Images(Wrapper):\n    phone_id = models.ForeignKey(Phone, on_delete=models.CASCADE)\n    img = models.ImageField(upload_to=\"shop/gallery\")\n    def __str__(self) -> str:\n        return str(self.img)\nclass Cart(Wrapper):\n    phone_id = models.ForeignKey(Phone, on_delete=models.CASCADE)\n    user_id = models.ForeignKey(User, on_delete=models.CASCADE)\n    quantity = models.IntegerField()\n    sub_total = models.DecimalField(",
         "detail": "apps.shop.models",
         "documentation": {}
     },
@@ -739,7 +696,7 @@
         "kind": 6,
         "importPath": "apps.shop.models",
         "description": "apps.shop.models",
-        "peekOfCode": "class Cart(Wrapper):\n    phone_id = models.ForeignKey(Phone, on_delete=models.CASCADE)\n    user_id = models.ForeignKey(User, on_delete=models.CASCADE)\n    quantity = models.IntegerField()\n    def __str__(self) -> str:\n        return str(self.id)\nclass Order(Wrapper):\n    phone_id = models.ForeignKey(Phone, on_delete=models.CASCADE)\n    user_id = models.ForeignKey(User, on_delete=models.CASCADE)\n    quantity = models.IntegerField()",
+        "peekOfCode": "class Cart(Wrapper):\n    phone_id = models.ForeignKey(Phone, on_delete=models.CASCADE)\n    user_id = models.ForeignKey(User, on_delete=models.CASCADE)\n    quantity = models.IntegerField()\n    sub_total = models.DecimalField(\n        max_digits=10, decimal_places=2, default=100)\n    def __str__(self) -> str:\n        return str(self.id)\nclass Order(Wrapper):\n    phone_id = models.ForeignKey(Phone, on_delete=models.CASCADE)",
         "detail": "apps.shop.models",
         "documentation": {}
     },
@@ -762,11 +719,20 @@
         "documentation": {}
     },
     {
+        "label": "cart_handler",
+        "kind": 2,
+        "importPath": "apps.shop.signals",
+        "description": "apps.shop.signals",
+        "peekOfCode": "def cart_handler(sender, instance, created, *args, **kwargs):\n    if created:\n        print(instance.phone_id.discount_price)\n        instance.sub_total = instance.phone_id.discount_price * instance.quantity\n        instance.save()\npost_save.connect(cart_handler, sender=Cart)",
+        "detail": "apps.shop.signals",
+        "documentation": {}
+    },
+    {
         "label": "urlpatterns",
         "kind": 5,
         "importPath": "apps.shop.urls",
         "description": "apps.shop.urls",
-        "peekOfCode": "urlpatterns = [\n    path('', views.Home.as_view(), name=\"home\"),\n    path('add-to-cart/<str:pk>/', views.AddToCarT.as_view(), name=\"add-to-cart\")\n]",
+        "peekOfCode": "urlpatterns = [\n    path('', views.Home.as_view(), name=\"home\"),\n    path('carts', views.Get_all_carts.as_view(), name=\"carts\"),\n    path('add-to-cart/<str:pk>/', views.AddToCarT.as_view(), name=\"add-to-cart\"),\n    path('remove-quantity/<str:pk>/',\n         views.remove_quantity, name=\"remove-quantity\"),\n    path('remove-item/<str:pk>/',\n         views.remove_from_cart, name=\"remove-cart\"),\n]",
         "detail": "apps.shop.urls",
         "documentation": {}
     },
@@ -784,16 +750,16 @@
         "kind": 6,
         "importPath": "apps.shop.views",
         "description": "apps.shop.views",
-        "peekOfCode": "class AddToCarT(View):\n    def get(self, request, pk):\n        phone = Phone.objects.get(id=pk)\n        user = User.objects.get(id=request.user.id)\n        cart = Cart.objects.filter(\n            Q(phone_id=phone.id) & Q(user_id=user.id)).exists()\n        if cart:\n            cart = Cart.objects.get(Q(phone_id=phone.id) & Q(user_id=user.id))\n            cart.quantity += 1\n            cart.save()",
+        "peekOfCode": "class AddToCarT(View):\n    def get(self, request, pk):\n        phone = Phone.objects.get(id=pk)\n        user = User.objects.get(id=request.user.id)\n        cart = Cart.objects.filter(\n            Q(phone_id=phone.id) & Q(user_id=user.id)).exists()\n        if cart:\n            cart = Cart.objects.get(Q(phone_id=phone.id) & Q(user_id=user.id))\n            cart.quantity += 1\n            cart.sub_total = cart.phone_id.discount_price * cart.quantity",
         "detail": "apps.shop.views",
         "documentation": {}
     },
     {
-        "label": "get_all_carts",
-        "kind": 2,
+        "label": "Get_all_carts",
+        "kind": 6,
         "importPath": "apps.shop.views",
         "description": "apps.shop.views",
-        "peekOfCode": "def get_all_carts(request):\n    carts = Cart.objects.get(user_id=request.user.id)\n    context = {\n        \"carts\": carts\n    }\n    return render(request, 'shop/carts.html', context)\ndef remove_quantity(request, pk):\n    cart = Cart.objects.get(id=pk)\n    cart.quantity -= 1\n    cart.save()",
+        "peekOfCode": "class Get_all_carts(View):\n    def get(self, request):\n        carts = Cart.objects.filter(user_id=request.user.id)\n        context = {\n            \"carts\": carts\n        }\n        return render(request, 'shop/carts.html', context)\ndef remove_quantity(request, pk):\n    cart = Cart.objects.get(id=pk)\n    cart.quantity -= 1",
         "detail": "apps.shop.views",
         "documentation": {}
     },
@@ -802,7 +768,7 @@
         "kind": 2,
         "importPath": "apps.shop.views",
         "description": "apps.shop.views",
-        "peekOfCode": "def remove_quantity(request, pk):\n    cart = Cart.objects.get(id=pk)\n    cart.quantity -= 1\n    cart.save()\n    return redirect(\"/\")\ndef remove_from_cart(request, pk):\n    cart = Cart.objects.get(id=pk)\n    cart.delete()\n    return redirect(\"/\")",
+        "peekOfCode": "def remove_quantity(request, pk):\n    cart = Cart.objects.get(id=pk)\n    cart.quantity -= 1\n    cart.sub_total = cart.phone_id.discount_price * cart.quantity\n    cart.save()\n    return redirect(\"carts\")\ndef remove_from_cart(request, pk):\n    cart = Cart.objects.get(id=pk)\n    cart.delete()\n    return redirect(\"carts\")",
         "detail": "apps.shop.views",
         "documentation": {}
     },
@@ -811,7 +777,7 @@
         "kind": 2,
         "importPath": "apps.shop.views",
         "description": "apps.shop.views",
-        "peekOfCode": "def remove_from_cart(request, pk):\n    cart = Cart.objects.get(id=pk)\n    cart.delete()\n    return redirect(\"/\")",
+        "peekOfCode": "def remove_from_cart(request, pk):\n    cart = Cart.objects.get(id=pk)\n    cart.delete()\n    return redirect(\"carts\")",
         "detail": "apps.shop.views",
         "documentation": {}
     },
@@ -874,7 +840,7 @@
         "kind": 5,
         "importPath": "core.settings",
         "description": "core.settings",
-        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'apps.authentications',\n    'apps.customers',\n    'apps.shop',",
+        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'apps.authentications',\n    'apps.customers',\n    'apps.shop.apps.ShopConfig',",
         "detail": "core.settings",
         "documentation": {}
     },

@@ -46,6 +46,8 @@ class Cart(Wrapper):
     phone_id = models.ForeignKey(Phone, on_delete=models.CASCADE)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
     quantity = models.IntegerField()
+    sub_total = models.DecimalField(
+        max_digits=10, decimal_places=2, default=100)
 
     def __str__(self) -> str:
         return str(self.id)

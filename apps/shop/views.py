@@ -31,28 +31,31 @@ class AddToCarT(View):
         if cart:
             cart = Cart.objects.get(Q(phone_id=phone.id) & Q(user_id=user.id))
             cart.quantity += 1
+            cart.sub_total = cart.phone_id.discount_price * cart.quantity
             cart.save()
         else:
             Cart.objects.create(phone_id=phone, user_id=user, quantity=1)
-        return redirect("/")
+        return redirect('carts')
 
 
-def get_all_carts(request):
-    carts = Cart.objects.get(user_id=request.user.id)
-    context = {
-        "carts": carts
-    }
-    return render(request, 'shop/carts.html', context)
+class Get_all_carts(View):
+    def get(self, request):
+        carts = Cart.objects.filter(user_id=request.user.id)
+        context = {
+            "carts": carts
+        }
+        return render(request, 'shop/carts.html', context)
 
 
 def remove_quantity(request, pk):
     cart = Cart.objects.get(id=pk)
     cart.quantity -= 1
+    cart.sub_total = cart.phone_id.discount_price * cart.quantity
     cart.save()
-    return redirect("/")
+    return redirect("carts")
 
 
 def remove_from_cart(request, pk):
     cart = Cart.objects.get(id=pk)
     cart.delete()
-    return redirect("/")
+    return redirect("carts")

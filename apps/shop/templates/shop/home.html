@@ -9,7 +9,9 @@
     {% for phone in phones %}
 
     <div class="card" style="width: 18rem;">
-      <img src="{{ phone.dp.url }}" class="card-img-top" alt="...">
+      <div>
+        <img src="{{ phone.dp.url }}" class="card-img-top" alt="...">
+      </div>
       <div class="card-body">
         <h5 class="card-title">{{phone.brand_name.name}} {{phone.model}}</h5>
         <p class="card-text">Regullar Price: {{phone.price}}</p>

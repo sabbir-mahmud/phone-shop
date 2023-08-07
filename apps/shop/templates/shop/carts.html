@@ -1,0 +1,35 @@
+{% include 'base.html' %}
+{% block Content %}
+<section class="container">
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Select all</th>
+        <th scope="col">Model</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Sub Total</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for cart in carts %}
+      <tr>
+        <td><input type="checkbox"></td>
+        <td>{{cart.phone_id.model}}</td>
+        <td>{{cart.phone_id.discount_price}}</td>
+        <td> <a href="{% url 'remove-quantity' cart.id %}"> - </a>  {{cart.quantity}} <a href="{% url 'add-to-cart' cart.phone_id.id %}">+</a></td>
+        <td>
+          {{cart.sub_total}}   
+        </td>
+        <td>
+          <a href="{% url 'remove-cart' cart.id %}">remove</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+
+{% endblock %}
