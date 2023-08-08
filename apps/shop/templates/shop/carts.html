@@ -16,7 +16,7 @@
     <tbody>
       {% for cart in carts %}
       <tr>
-        <td><input type="checkbox"></td>
+        <td><input onclick="checkHandler(this)" class="order-selected" type="checkbox"><input type="hidden" value="{{cart.id}}"></td>
         <td>{{cart.phone_id.model}}</td>
         <td>{{cart.phone_id.discount_price}}</td>
         <td> <a href="{% url 'remove-quantity' cart.id %}"> - </a>  {{cart.quantity}} <a href="{% url 'add-to-cart' cart.phone_id.id %}">+</a></td>
@@ -30,6 +30,26 @@
       {% endfor %}
     </tbody>
   </table>
+  <hr>
+  <form method="post">
+    {% csrf_token %}
+    <input id="cartIds" type="hidden" value="">
+    <button type="submit" id="continue">Continue</button>
+  </form>
+
+  <script>
+    function checkHandler(e){
+      console.log()
+      if(e.checked){
+        let cartId = e.nextElementSibling.value
+        let ids = document.getElementById("cartIds")
+        ids.value +=  `${cartId},`
+      }
+
+    }  
+    
+    
+  </script>
 </section>
 
 {% endblock %}
