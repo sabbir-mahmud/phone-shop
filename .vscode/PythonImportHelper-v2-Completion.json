@@ -466,6 +466,15 @@
         "documentation": {}
     },
     {
+        "label": "stripe",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "stripe",
+        "description": "stripe",
+        "detail": "stripe",
+        "documentation": {}
+    },
+    {
         "label": "Paginator",
         "importPath": "django.core.paginator",
         "description": "django.core.paginator",
@@ -616,7 +625,7 @@
         "kind": 6,
         "importPath": "apps.authentications.middleware",
         "description": "apps.authentications.middleware",
-        "peekOfCode": "class SSLCSRF:\n    def __init__(self, get_response):\n        self.get_response = get_response\n    def __call__(self, request):\n        if \"HTTP_ORIGIN\" in request.META:\n            if request.META[\"HTTP_ORIGIN\"] != 'null':\n                pass\n            else:\n                if request.method == \"POST\" or request.method == \"post\":\n                    settings = {'store_id': 'sabbi64edd5c46bbad',",
+        "peekOfCode": "class SSLCSRF:\n    def __init__(self, get_response):\n        self.get_response = get_response\n    def __call__(self, request):\n        if \"HTTP_ORIGIN\" in request.META and request.path == \"/payment/ssl-commerce/callback/\":\n            print('running ssl')\n            print('line 17', request.path)\n            if request.META[\"HTTP_ORIGIN\"] != 'null':\n                pass\n            else:",
         "detail": "apps.authentications.middleware",
         "documentation": {}
     },
@@ -913,7 +922,34 @@
         "kind": 2,
         "importPath": "apps.shop.views",
         "description": "apps.shop.views",
-        "peekOfCode": "def sslCallback(request, pk):\n    payment = Payment.objects.get(id=pk)\n    context = {\"payment\": payment}\n    return render(request, \"payments/ssl_callback.html\", context)",
+        "peekOfCode": "def sslCallback(request, pk):\n    payment = Payment.objects.get(id=pk)\n    context = {\"payment\": payment}\n    return render(request, \"payments/callback.html\", context)\ndef stripeIntent(request, pk):\n    payment = Payment.objects.get(id=pk)\n    customer = stripe.Customer.create(\n        email=request.user.email,\n    )\n    intent = stripe.PaymentIntent.create(",
+        "detail": "apps.shop.views",
+        "documentation": {}
+    },
+    {
+        "label": "stripeIntent",
+        "kind": 2,
+        "importPath": "apps.shop.views",
+        "description": "apps.shop.views",
+        "peekOfCode": "def stripeIntent(request, pk):\n    payment = Payment.objects.get(id=pk)\n    customer = stripe.Customer.create(\n        email=request.user.email,\n    )\n    intent = stripe.PaymentIntent.create(\n        description=\"SM Software services\",\n        amount=int(10 * 100),\n        currency='USD',\n        automatic_payment_methods={'enabled': True},",
+        "detail": "apps.shop.views",
+        "documentation": {}
+    },
+    {
+        "label": "stripe_callback",
+        "kind": 2,
+        "importPath": "apps.shop.views",
+        "description": "apps.shop.views",
+        "peekOfCode": "def stripe_callback(request):\n    payment_intent = stripe.PaymentIntent.retrieve(\n        request.GET.get(\"payment_intent\"))\n    payment = Payment.objects.get(\n        payment_secret=payment_intent[\"client_secret\"])\n    if payment_intent[\"status\"] == \"succeeded\":\n        payment.is_paid = True\n        payment.payment_status = \"Success\"\n        payment.payment_id = payment_intent[\"id\"]\n        payment.save()",
+        "detail": "apps.shop.views",
+        "documentation": {}
+    },
+    {
+        "label": "stripe.api_key",
+        "kind": 5,
+        "importPath": "apps.shop.views",
+        "description": "apps.shop.views",
+        "peekOfCode": "stripe.api_key = \"sk_test_51L0hxlEZlpATTp015WVNZvrzVgm1NSJpOgyGwploURgse2aEcf3PpIS1gCuu7gbWG0xf6QTXKAUsSVNxZUCSQAgG00H5nfUUcD\"\nUser = get_user_model()\nclass Home(View):\n    def get(self, request):\n        phones = Phone.objects.all().order_by(\"-id\")[:9]\n        context = {\n            \"phones\": phones\n        }\n        return render(request, 'shop/home.html', context)\nclass AddToCarT(View):",
         "detail": "apps.shop.views",
         "documentation": {}
     },

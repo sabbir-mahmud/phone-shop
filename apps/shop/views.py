@@ -1,5 +1,6 @@
 from decimal import Decimal
 
+import stripe
 from django.contrib.auth import get_user_model
 from django.core.paginator import Paginator
 from django.db.models import Q
@@ -9,6 +10,8 @@ from django.views.decorators.csrf import csrf_exempt
 from sslcommerz_python.payment import SSLCSession
 
 from .models import Cart, Order, Payment, Phone
+
+stripe.api_key = "sk_test_51L0hxlEZlpATTp015WVNZvrzVgm1NSJpOgyGwploURgse2aEcf3PpIS1gCuu7gbWG0xf6QTXKAUsSVNxZUCSQAgG00H5nfUUcD"
 
 User = get_user_model()
 
@@ -131,4 +134,46 @@ def sslCommerce(request, pk):
 def sslCallback(request, pk):
     payment = Payment.objects.get(id=pk)
     context = {"payment": payment}
-    return render(request, "payments/ssl_callback.html", context)
+    return render(request, "payments/callback.html", context)
+
+
+def stripeIntent(request, pk):
+    payment = Payment.objects.get(id=pk)
+    customer = stripe.Customer.create(
+        email=request.user.email,
+    )
+    intent = stripe.PaymentIntent.create(
+        description="SM Software services",
+        amount=int(10 * 100),
+        currency='USD',
+        automatic_payment_methods={'enabled': True},
+        customer=customer.id,
+    )
+    client_secret = intent.client_secret
+    payment.payment_secret = client_secret
+    payment.gateway = "Stripe"
+    payment.save()
+    context = {"intent": intent, "client_secret": client_secret}
+    return render(request, "payments/stripe.html", context)
+
+
+def stripe_callback(request):
+    payment_intent = stripe.PaymentIntent.retrieve(
+        request.GET.get("payment_intent"))
+    payment = Payment.objects.get(
+        payment_secret=payment_intent["client_secret"])
+    if payment_intent["status"] == "succeeded":
+        payment.is_paid = True
+        payment.payment_status = "Success"
+        payment.payment_id = payment_intent["id"]
+        payment.save()
+        for i in payment.carts.split(","):
+            if i:
+                cart = Cart.objects.get(id=i)
+                cart.delete()
+    else:
+        payment.payment_status = "Failed"
+        payment.save()
+
+    context = {"payment": payment}
+    return render(request, "payments/callback.html", context)

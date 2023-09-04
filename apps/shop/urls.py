@@ -16,4 +16,6 @@ urlpatterns = [
     path('payment/ssl-commerce/<str:pk>/', views.sslCommerce, name="ssl-com"),
     path('payment/ssl-commerce/callback/<str:pk>/',
          csrf_exempt(views.sslCallback), name="ssl-callback"),
+    path('payment/stripe/<str:pk>/', views.stripeIntent, name="stripe-intent"),
+    path("payment/stripe/callback", views.stripe_callback, name="stripe-callback")
 ]

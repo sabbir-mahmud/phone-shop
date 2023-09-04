@@ -11,7 +11,10 @@ class SSLCSRF:
         self.get_response = get_response
 
     def __call__(self, request):
-        if "HTTP_ORIGIN" in request.META:
+
+        if "HTTP_ORIGIN" in request.META and request.path == "/payment/ssl-commerce/callback/":
+            print('running ssl')
+            print('line 17', request.path)
             if request.META["HTTP_ORIGIN"] != 'null':
                 pass
             else:
