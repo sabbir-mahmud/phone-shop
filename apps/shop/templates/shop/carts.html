@@ -14,6 +14,7 @@
       </tr>
     </thead>
     <tbody>
+      {% if carts %}
       {% for cart in carts %}
       <tr>
         <td><input onclick="checkHandler(this)" class="order-selected" type="checkbox"><input type="hidden" value="{{cart.id}}"></td>
@@ -27,10 +28,13 @@
           <a href="{% url 'remove-cart' cart.id %}">remove</a>
         </td>
       </tr>
-      {% endfor %}
+      {% endfor %}      
+      {% else %}
+      <tr><td colspan="6">No items added to the cart</td></tr>
+      
+      {% endif %}
     </tbody>
   </table>
-  <hr>
 
   <form action="{% url 'generate-payment' %}" method="post">
     {% csrf_token %}
