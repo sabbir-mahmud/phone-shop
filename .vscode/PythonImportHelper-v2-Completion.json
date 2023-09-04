@@ -616,7 +616,7 @@
         "kind": 6,
         "importPath": "apps.authentications.middleware",
         "description": "apps.authentications.middleware",
-        "peekOfCode": "class SSLCSRF:\n    def __init__(self, get_response):\n        self.get_response = get_response\n    def __call__(self, request):\n        print(type(request.META))\n        if \"HTTP_ORIGIN\" in request.META:\n            if request.META[\"HTTP_ORIGIN\"] != 'null':\n                pass\n            else:\n                if request.method == \"POST\" or request.method == \"post\":",
+        "peekOfCode": "class SSLCSRF:\n    def __init__(self, get_response):\n        self.get_response = get_response\n    def __call__(self, request):\n        if \"HTTP_ORIGIN\" in request.META:\n            if request.META[\"HTTP_ORIGIN\"] != 'null':\n                pass\n            else:\n                if request.method == \"POST\" or request.method == \"post\":\n                    settings = {'store_id': 'sabbi64edd5c46bbad',",
         "detail": "apps.authentications.middleware",
         "documentation": {}
     },
@@ -625,7 +625,7 @@
         "kind": 6,
         "importPath": "apps.authentications.middleware",
         "description": "apps.authentications.middleware",
-        "peekOfCode": "class AuthenticationMiddleware:\n    def __init__(self, get_response):\n        self.get_response = get_response\n    def __call__(self, request):\n        if request.path == \"/auth/login/\" or request.path == \"/auth/register/\" or request.path == \"/\" or request.path == \"/payment/ssl-commerce/callback/\":\n            print(\"--------------------------------------------\")\n            print(\"line 12\")\n            print(request.user)\n            response = self.get_response(request)\n            return response",
+        "peekOfCode": "class AuthenticationMiddleware:\n    def __init__(self, get_response):\n        self.get_response = get_response\n    def __call__(self, request):\n        if request.path == \"/auth/login/\" or request.path == \"/auth/register/\" or request.path == \"/\" or request.path == \"/payment/ssl-commerce/callback/\":\n            response = self.get_response(request)\n            return response\n        if not request.user.is_authenticated:\n            if request.path != \"/auth/login/\":\n                return redirect(\"login\")",
         "detail": "apps.authentications.middleware",
         "documentation": {}
     },
@@ -895,7 +895,7 @@
         "kind": 2,
         "importPath": "apps.shop.views",
         "description": "apps.shop.views",
-        "peekOfCode": "def selectGateway(request, pk):\n    context = {\"payID\": pk}\n    return render(request, \"shop/gateway.html\", context)\ndef sslCommerce(request, pk):\n    payment = Payment.objects.get(id=pk)\n    ssl_store = SSLCSession(sslc_is_sandbox=True, sslc_store_id='sabbi64edd5c46bbad',\n                            sslc_store_pass='sabbi64edd5c46bbad@ssl')\n    ssl_store.set_urls(success_url='http://127.0.0.1:8000/payment/ssl-commerce/callback/', fail_url='http://127.0.0.1:8000/payment/ssl-commerce/callback/',\n                       cancel_url='http://127.0.0.1:8000/payment/ssl-commerce/callback/', ipn_url='http://127.0.0.1:8000/payment/ssl-commerce/callback/')\n    amount = str(payment.amount)",
+        "peekOfCode": "def selectGateway(request, pk):\n    context = {\"payID\": pk}\n    return render(request, \"payments/gateway.html\", context)\ndef sslCommerce(request, pk):\n    payment = Payment.objects.get(id=pk)\n    ssl_store = SSLCSession(sslc_is_sandbox=True, sslc_store_id='sabbi64edd5c46bbad',\n                            sslc_store_pass='sabbi64edd5c46bbad@ssl')\n    ssl_store.set_urls(success_url='http://127.0.0.1:8000/payment/ssl-commerce/callback/', fail_url='http://127.0.0.1:8000/payment/ssl-commerce/callback/',\n                       cancel_url='http://127.0.0.1:8000/payment/ssl-commerce/callback/', ipn_url='http://127.0.0.1:8000/payment/ssl-commerce/callback/')\n    amount = str(payment.amount)",
         "detail": "apps.shop.views",
         "documentation": {}
     },
@@ -904,7 +904,7 @@
         "kind": 2,
         "importPath": "apps.shop.views",
         "description": "apps.shop.views",
-        "peekOfCode": "def sslCommerce(request, pk):\n    payment = Payment.objects.get(id=pk)\n    ssl_store = SSLCSession(sslc_is_sandbox=True, sslc_store_id='sabbi64edd5c46bbad',\n                            sslc_store_pass='sabbi64edd5c46bbad@ssl')\n    ssl_store.set_urls(success_url='http://127.0.0.1:8000/payment/ssl-commerce/callback/', fail_url='http://127.0.0.1:8000/payment/ssl-commerce/callback/',\n                       cancel_url='http://127.0.0.1:8000/payment/ssl-commerce/callback/', ipn_url='http://127.0.0.1:8000/payment/ssl-commerce/callback/')\n    amount = str(payment.amount)\n    item_count = payment.orders.count()\n    print(amount)\n    print(item_count)",
+        "peekOfCode": "def sslCommerce(request, pk):\n    payment = Payment.objects.get(id=pk)\n    ssl_store = SSLCSession(sslc_is_sandbox=True, sslc_store_id='sabbi64edd5c46bbad',\n                            sslc_store_pass='sabbi64edd5c46bbad@ssl')\n    ssl_store.set_urls(success_url='http://127.0.0.1:8000/payment/ssl-commerce/callback/', fail_url='http://127.0.0.1:8000/payment/ssl-commerce/callback/',\n                       cancel_url='http://127.0.0.1:8000/payment/ssl-commerce/callback/', ipn_url='http://127.0.0.1:8000/payment/ssl-commerce/callback/')\n    amount = str(payment.amount)\n    item_count = payment.orders.count()\n    ssl_store.set_product_integration(total_amount=Decimal(amount), currency='BDT', product_category='Mobile',\n                                      product_name='Phone', num_of_item=item_count, shipping_method='YES', product_profile='None')",
         "detail": "apps.shop.views",
         "documentation": {}
     },
@@ -913,7 +913,7 @@
         "kind": 2,
         "importPath": "apps.shop.views",
         "description": "apps.shop.views",
-        "peekOfCode": "def sslCallback(request, pk):\n    print(pk)\n    return render(request, \"ssl_success.html\")",
+        "peekOfCode": "def sslCallback(request, pk):\n    payment = Payment.objects.get(id=pk)\n    context = {\"payment\": payment}\n    return render(request, \"payments/ssl_callback.html\", context)",
         "detail": "apps.shop.views",
         "documentation": {}
     },

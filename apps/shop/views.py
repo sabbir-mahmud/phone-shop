@@ -92,7 +92,7 @@ def generatePayment(request):
 
 def selectGateway(request, pk):
     context = {"payID": pk}
-    return render(request, "shop/gateway.html", context)
+    return render(request, "payments/gateway.html", context)
 
 
 def sslCommerce(request, pk):
@@ -105,9 +105,6 @@ def sslCommerce(request, pk):
 
     amount = str(payment.amount)
     item_count = payment.orders.count()
-
-    print(amount)
-    print(item_count)
 
     ssl_store.set_product_integration(total_amount=Decimal(amount), currency='BDT', product_category='Mobile',
                                       product_name='Phone', num_of_item=item_count, shipping_method='YES', product_profile='None')
@@ -132,5 +129,6 @@ def sslCommerce(request, pk):
 
 @csrf_exempt
 def sslCallback(request, pk):
-    print(pk)
-    return render(request, "ssl_success.html")
+    payment = Payment.objects.get(id=pk)
+    context = {"payment": payment}
+    return render(request, "payments/ssl_callback.html", context)

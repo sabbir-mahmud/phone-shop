@@ -11,7 +11,6 @@ class SSLCSRF:
         self.get_response = get_response
 
     def __call__(self, request):
-        print(type(request.META))
         if "HTTP_ORIGIN" in request.META:
             if request.META["HTTP_ORIGIN"] != 'null':
                 pass
@@ -28,6 +27,7 @@ class SSLCSRF:
                             id=status['element'][0]["value_d"])
                         payment.payment_id = pay_id
                         payment.is_paid = True
+                        payment.payment_status = "Success"
                         payment.save()
 
                         for i in payment.carts.split(","):
@@ -37,7 +37,12 @@ class SSLCSRF:
                         url = f"/payment/ssl-commerce/callback/{payment.id}/"
                         return redirect(url)
                     else:
-                        print("Not Valid")
+                        payment = Payment.objects.get(
+                            id=status['element'][0]["value_d"])
+                        payment.payment_status = "failed"
+                        payment.save()
+                        url = f"/payment/ssl-commerce/callback/{payment.id}/"
+                        return redirect(url)
 
         response = self.get_response(request)
         return response
@@ -50,21 +55,12 @@ class AuthenticationMiddleware:
     def __call__(self, request):
 
         if request.path == "/auth/login/" or request.path == "/auth/register/" or request.path == "/" or request.path == "/payment/ssl-commerce/callback/":
-            print("--------------------------------------------")
-            print("line 12")
-            print(request.user)
             response = self.get_response(request)
             return response
 
         if not request.user.is_authenticated:
-            print("--------------------------------------------")
-            print("--------------------------------------------")
-            print('line 20')
-
             if request.path != "/auth/login/":
                 return redirect("login")
 
         response = self.get_response(request)
-        return response
-        return response
         return response

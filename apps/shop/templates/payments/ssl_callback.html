@@ -1,0 +1,11 @@
+{% include 'base.html' %}
+{% block Content %}
+<section class="container">
+  {% if payment.is_paid %}
+  <H1>payment success</H1>
+  {% else %}
+  <H1>payment failed</H1>
+  {% endif %}
+  
+</section>
+{% endblock %}
