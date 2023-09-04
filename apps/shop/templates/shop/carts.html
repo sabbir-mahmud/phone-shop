@@ -31,9 +31,10 @@
     </tbody>
   </table>
   <hr>
-  <form method="post">
+
+  <form action="{% url 'generate-payment' %}" method="post">
     {% csrf_token %}
-    <input id="cartIds" type="hidden" value="">
+    <input id="cartIds" name="carts" type="hidden" value="">
     <button type="submit" id="continue">Continue</button>
   </form>
 

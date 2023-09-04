@@ -34,6 +34,7 @@ class RegisterView(View):
 
 class LoginView(View):
     def get(self, request):
+        print('view running')
         return render(request, "auth/login.html")
 
     def post(self, request):

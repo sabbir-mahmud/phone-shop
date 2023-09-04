@@ -1,12 +1,14 @@
+from decimal import Decimal
+
 from django.contrib.auth import get_user_model
 from django.core.paginator import Paginator
 from django.db.models import Q
 from django.shortcuts import redirect, render
 from django.views import View
+from django.views.decorators.csrf import csrf_exempt
+from sslcommerz_python.payment import SSLCSession
 
-from apps.shop.context_processor import carts
-
-from .models import Cart, Phone
+from .models import Cart, Order, Payment, Phone
 
 User = get_user_model()
 
@@ -59,3 +61,76 @@ def remove_from_cart(request, pk):
     cart = Cart.objects.get(id=pk)
     cart.delete()
     return redirect("carts")
+
+
+def generatePayment(request):
+    if request.method == "POST":
+        carts = request.POST.get("carts").split(',')
+        amount = 0
+        payment = Payment()
+        payment.user_id = request.user
+        payment.save()
+        for cart in carts:
+            if cart:
+                item = Cart.objects.get(id=cart)
+                amount += item.sub_total
+                order = Order()
+                order.phone_id = item.phone_id
+                order.user_id = item.user_id
+                order.quantity = item.quantity
+                order.amount_charged = item.sub_total
+                order.amount = item.sub_total
+                order.discount = 0
+                order.save()
+                payment.orders.add(order)
+        payment.amount = amount
+        payment.carts = request.POST.get("carts")
+        payment.save()
+    url = f"/payment/{payment.id}"
+    return redirect(url)
+
+
+def selectGateway(request, pk):
+    context = {"payID": pk}
+    return render(request, "shop/gateway.html", context)
+
+
+def sslCommerce(request, pk):
+    payment = Payment.objects.get(id=pk)
+    ssl_store = SSLCSession(sslc_is_sandbox=True, sslc_store_id='sabbi64edd5c46bbad',
+                            sslc_store_pass='sabbi64edd5c46bbad@ssl')
+
+    ssl_store.set_urls(success_url='http://127.0.0.1:8000/payment/ssl-commerce/callback/', fail_url='http://127.0.0.1:8000/payment/ssl-commerce/callback/',
+                       cancel_url='http://127.0.0.1:8000/payment/ssl-commerce/callback/', ipn_url='http://127.0.0.1:8000/payment/ssl-commerce/callback/')
+
+    amount = str(payment.amount)
+    item_count = payment.orders.count()
+
+    print(amount)
+    print(item_count)
+
+    ssl_store.set_product_integration(total_amount=Decimal(amount), currency='BDT', product_category='Mobile',
+                                      product_name='Phone', num_of_item=item_count, shipping_method='YES', product_profile='None')
+    user = request.user
+
+    ssl_store.set_customer_info(name=f"{user.first_name} {user.last_name}", email=f"{user.email}", address1='demo address',
+                                address2='demo address 2', city='Dhaka', postcode='1207', country='Bangladesh', phone='01711111111')
+
+    ssl_store.set_shipping_info(shipping_to='demo customer', address='demo address',
+                                city='Dhaka', postcode='1209', country='Bangladesh')
+
+    ssl_store.set_additional_values(
+        value_a='cusotmer@email.com', value_b='portalcustomerid', value_c='1234', value_d=f"{payment.id}")
+
+    response_data = ssl_store.init_payment()
+    payment.gateway = "SSL-Commerz"
+    payment.save()
+
+    url = response_data["GatewayPageURL"]
+    return redirect(url)
+
+
+@csrf_exempt
+def sslCallback(request, pk):
+    print(pk)
+    return render(request, "ssl_success.html")

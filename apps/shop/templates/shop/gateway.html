@@ -1,0 +1,12 @@
+{% include 'base.html' %}
+{% block Content %}
+<section class="container">
+
+  <button class="btn btn-primary">Gateway</button>
+  <a href="{% url 'ssl-com' payID  %}" class="btn btn-primary">SSLCommerce</a>
+  <button class="btn btn-primary">Bkash</button>
+  <button class="btn btn-primary">Stripe</button>  
+  
+
+</section>
+{% endblock %}

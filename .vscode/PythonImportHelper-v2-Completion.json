@@ -72,6 +72,22 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -257,58 +273,11 @@
         "documentation": {}
     },
     {
-        "label": "redirect",
-        "importPath": "django.shortcuts",
-        "description": "django.shortcuts",
+        "label": "django.urls",
+        "kind": 6,
         "isExtraImport": true,
-        "detail": "django.shortcuts",
-        "documentation": {}
-    },
-    {
-        "label": "redirect",
-        "importPath": "django.shortcuts",
-        "description": "django.shortcuts",
-        "isExtraImport": true,
-        "detail": "django.shortcuts",
-        "documentation": {}
-    },
-    {
-        "label": "render",
-        "importPath": "django.shortcuts",
-        "description": "django.shortcuts",
-        "isExtraImport": true,
-        "detail": "django.shortcuts",
-        "documentation": {}
-    },
-    {
-        "label": "render",
-        "importPath": "django.shortcuts",
-        "description": "django.shortcuts",
-        "isExtraImport": true,
-        "detail": "django.shortcuts",
-        "documentation": {}
-    },
-    {
-        "label": "redirect",
-        "importPath": "django.shortcuts",
-        "description": "django.shortcuts",
-        "isExtraImport": true,
-        "detail": "django.shortcuts",
-        "documentation": {}
-    },
-    {
-        "label": "render",
-        "importPath": "django.shortcuts",
-        "description": "django.shortcuts",
-        "isExtraImport": true,
-        "detail": "django.shortcuts",
-        "documentation": {}
-    },
-    {
-        "label": "reverse",
         "importPath": "django.urls",
         "description": "django.urls",
-        "isExtraImport": true,
         "detail": "django.urls",
         "documentation": {}
     },
@@ -342,6 +311,86 @@
         "description": "django.urls",
         "isExtraImport": true,
         "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "get_token",
+        "importPath": "django.middleware.csrf",
+        "description": "django.middleware.csrf",
+        "isExtraImport": true,
+        "detail": "django.middleware.csrf",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "SSLCOMMERZ",
+        "importPath": "sslcommerz_lib",
+        "description": "sslcommerz_lib",
+        "isExtraImport": true,
+        "detail": "sslcommerz_lib",
+        "documentation": {}
+    },
+    {
+        "label": "Cart",
+        "importPath": "apps.shop.models",
+        "description": "apps.shop.models",
+        "isExtraImport": true,
+        "detail": "apps.shop.models",
+        "documentation": {}
+    },
+    {
+        "label": "Payment",
+        "importPath": "apps.shop.models",
+        "description": "apps.shop.models",
+        "isExtraImport": true,
+        "detail": "apps.shop.models",
         "documentation": {}
     },
     {
@@ -393,6 +442,30 @@
         "documentation": {}
     },
     {
+        "label": "csrf_exempt",
+        "importPath": "django.views.decorators.csrf",
+        "description": "django.views.decorators.csrf",
+        "isExtraImport": true,
+        "detail": "django.views.decorators.csrf",
+        "documentation": {}
+    },
+    {
+        "label": "csrf_exempt",
+        "importPath": "django.views.decorators.csrf",
+        "description": "django.views.decorators.csrf",
+        "isExtraImport": true,
+        "detail": "django.views.decorators.csrf",
+        "documentation": {}
+    },
+    {
+        "label": "Decimal",
+        "importPath": "decimal",
+        "description": "decimal",
+        "isExtraImport": true,
+        "detail": "decimal",
+        "documentation": {}
+    },
+    {
         "label": "Paginator",
         "importPath": "django.core.paginator",
         "description": "django.core.paginator",
@@ -409,11 +482,11 @@
         "documentation": {}
     },
     {
-        "label": "carts",
-        "importPath": "apps.shop.context_processor",
-        "description": "apps.shop.context_processor",
+        "label": "SSLCSession",
+        "importPath": "sslcommerz_python.payment",
+        "description": "sslcommerz_python.payment",
         "isExtraImport": true,
-        "detail": "apps.shop.context_processor",
+        "detail": "sslcommerz_python.payment",
         "documentation": {}
     },
     {
@@ -539,11 +612,20 @@
         "documentation": {}
     },
     {
+        "label": "SSLCSRF",
+        "kind": 6,
+        "importPath": "apps.authentications.middleware",
+        "description": "apps.authentications.middleware",
+        "peekOfCode": "class SSLCSRF:\n    def __init__(self, get_response):\n        self.get_response = get_response\n    def __call__(self, request):\n        print(type(request.META))\n        if \"HTTP_ORIGIN\" in request.META:\n            if request.META[\"HTTP_ORIGIN\"] != 'null':\n                pass\n            else:\n                if request.method == \"POST\" or request.method == \"post\":",
+        "detail": "apps.authentications.middleware",
+        "documentation": {}
+    },
+    {
         "label": "AuthenticationMiddleware",
         "kind": 6,
         "importPath": "apps.authentications.middleware",
         "description": "apps.authentications.middleware",
-        "peekOfCode": "class AuthenticationMiddleware:\n    def __init__(self, get_response):\n        self.get_response = get_response\n    def __call__(self, request):\n        # Check if the user is authenticated\n        if not request.user.is_authenticated:\n            # If not authenticated, redirect to the login page\n            login_url = reverse('login')  # Change 'login' to your actual login view name\n            if request.path != login_url:\n                return redirect(login_url)",
+        "peekOfCode": "class AuthenticationMiddleware:\n    def __init__(self, get_response):\n        self.get_response = get_response\n    def __call__(self, request):\n        if request.path == \"/auth/login/\" or request.path == \"/auth/register/\" or request.path == \"/\" or request.path == \"/payment/ssl-commerce/callback/\":\n            print(\"--------------------------------------------\")\n            print(\"line 12\")\n            print(request.user)\n            response = self.get_response(request)\n            return response",
         "detail": "apps.authentications.middleware",
         "documentation": {}
     },
@@ -606,7 +688,7 @@
         "kind": 6,
         "importPath": "apps.authentications.views",
         "description": "apps.authentications.views",
-        "peekOfCode": "class LoginView(View):\n    def get(self, request):\n        return render(request, \"auth/login.html\")\n    def post(self, request):\n        email = request.POST.get(\"email\")\n        password = request.POST.get(\"password\")\n        user = authenticate(email=email, password=password)\n        if user is not None:\n            login(request, user)\n            messages.info(request, \"successfully login\")",
+        "peekOfCode": "class LoginView(View):\n    def get(self, request):\n        print('view running')\n        return render(request, \"auth/login.html\")\n    def post(self, request):\n        email = request.POST.get(\"email\")\n        password = request.POST.get(\"password\")\n        user = authenticate(email=email, password=password)\n        if user is not None:\n            login(request, user)",
         "detail": "apps.authentications.views",
         "documentation": {}
     },
@@ -635,6 +717,15 @@
         "description": "apps.shop.migrations.0001_initial",
         "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Brand',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),",
         "detail": "apps.shop.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "apps.shop.migrations.0002_payment_carts",
+        "description": "apps.shop.migrations.0002_payment_carts",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('shop', '0001_initial'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='payment',\n            name='carts',\n            field=models.CharField(blank=True, default='', max_length=100, null=True),\n        ),",
+        "detail": "apps.shop.migrations.0002_payment_carts",
         "documentation": {}
     },
     {
@@ -710,6 +801,15 @@
         "documentation": {}
     },
     {
+        "label": "Payment",
+        "kind": 6,
+        "importPath": "apps.shop.models",
+        "description": "apps.shop.models",
+        "peekOfCode": "class Payment(Wrapper):\n    user_id = models.ForeignKey(User, on_delete=models.CASCADE)\n    orders = models.ManyToManyField(Order)\n    carts = models.CharField(max_length=100, blank=True, null=True, default=\"\")\n    amount = models.DecimalField(max_digits=10, decimal_places=2, default=0)\n    discount = models.DecimalField(max_digits=10, decimal_places=2, default=0)\n    gateway = models.CharField(max_length=50, blank=True, null=True)\n    payment_id = models.CharField(max_length=100, blank=True, null=True)\n    payment_secret = models.CharField(max_length=100, blank=True, null=True)\n    is_paid = models.BooleanField(default=False)",
+        "detail": "apps.shop.models",
+        "documentation": {}
+    },
+    {
         "label": "User",
         "kind": 5,
         "importPath": "apps.shop.models",
@@ -732,7 +832,7 @@
         "kind": 5,
         "importPath": "apps.shop.urls",
         "description": "apps.shop.urls",
-        "peekOfCode": "urlpatterns = [\n    path('', views.Home.as_view(), name=\"home\"),\n    path('carts', views.Get_all_carts.as_view(), name=\"carts\"),\n    path('add-to-cart/<str:pk>/', views.AddToCarT.as_view(), name=\"add-to-cart\"),\n    path('remove-quantity/<str:pk>/',\n         views.remove_quantity, name=\"remove-quantity\"),\n    path('remove-item/<str:pk>/',\n         views.remove_from_cart, name=\"remove-cart\"),\n]",
+        "peekOfCode": "urlpatterns = [\n    path('', views.Home.as_view(), name=\"home\"),\n    path('carts', views.Get_all_carts.as_view(), name=\"carts\"),\n    path('add-to-cart/<str:pk>/', views.AddToCarT.as_view(), name=\"add-to-cart\"),\n    path('remove-quantity/<str:pk>/',\n         views.remove_quantity, name=\"remove-quantity\"),\n    path('remove-item/<str:pk>/',\n         views.remove_from_cart, name=\"remove-cart\"),\n    path('generate-payment', views.generatePayment, name=\"generate-payment\"),\n    path('payment/<str:pk>/', views.selectGateway, name=\"select-gateway\"),",
         "detail": "apps.shop.urls",
         "documentation": {}
     },
@@ -777,7 +877,43 @@
         "kind": 2,
         "importPath": "apps.shop.views",
         "description": "apps.shop.views",
-        "peekOfCode": "def remove_from_cart(request, pk):\n    cart = Cart.objects.get(id=pk)\n    cart.delete()\n    return redirect(\"carts\")",
+        "peekOfCode": "def remove_from_cart(request, pk):\n    cart = Cart.objects.get(id=pk)\n    cart.delete()\n    return redirect(\"carts\")\ndef generatePayment(request):\n    if request.method == \"POST\":\n        carts = request.POST.get(\"carts\").split(',')\n        amount = 0\n        payment = Payment()\n        payment.user_id = request.user",
+        "detail": "apps.shop.views",
+        "documentation": {}
+    },
+    {
+        "label": "generatePayment",
+        "kind": 2,
+        "importPath": "apps.shop.views",
+        "description": "apps.shop.views",
+        "peekOfCode": "def generatePayment(request):\n    if request.method == \"POST\":\n        carts = request.POST.get(\"carts\").split(',')\n        amount = 0\n        payment = Payment()\n        payment.user_id = request.user\n        payment.save()\n        for cart in carts:\n            if cart:\n                item = Cart.objects.get(id=cart)",
+        "detail": "apps.shop.views",
+        "documentation": {}
+    },
+    {
+        "label": "selectGateway",
+        "kind": 2,
+        "importPath": "apps.shop.views",
+        "description": "apps.shop.views",
+        "peekOfCode": "def selectGateway(request, pk):\n    context = {\"payID\": pk}\n    return render(request, \"shop/gateway.html\", context)\ndef sslCommerce(request, pk):\n    payment = Payment.objects.get(id=pk)\n    ssl_store = SSLCSession(sslc_is_sandbox=True, sslc_store_id='sabbi64edd5c46bbad',\n                            sslc_store_pass='sabbi64edd5c46bbad@ssl')\n    ssl_store.set_urls(success_url='http://127.0.0.1:8000/payment/ssl-commerce/callback/', fail_url='http://127.0.0.1:8000/payment/ssl-commerce/callback/',\n                       cancel_url='http://127.0.0.1:8000/payment/ssl-commerce/callback/', ipn_url='http://127.0.0.1:8000/payment/ssl-commerce/callback/')\n    amount = str(payment.amount)",
+        "detail": "apps.shop.views",
+        "documentation": {}
+    },
+    {
+        "label": "sslCommerce",
+        "kind": 2,
+        "importPath": "apps.shop.views",
+        "description": "apps.shop.views",
+        "peekOfCode": "def sslCommerce(request, pk):\n    payment = Payment.objects.get(id=pk)\n    ssl_store = SSLCSession(sslc_is_sandbox=True, sslc_store_id='sabbi64edd5c46bbad',\n                            sslc_store_pass='sabbi64edd5c46bbad@ssl')\n    ssl_store.set_urls(success_url='http://127.0.0.1:8000/payment/ssl-commerce/callback/', fail_url='http://127.0.0.1:8000/payment/ssl-commerce/callback/',\n                       cancel_url='http://127.0.0.1:8000/payment/ssl-commerce/callback/', ipn_url='http://127.0.0.1:8000/payment/ssl-commerce/callback/')\n    amount = str(payment.amount)\n    item_count = payment.orders.count()\n    print(amount)\n    print(item_count)",
+        "detail": "apps.shop.views",
+        "documentation": {}
+    },
+    {
+        "label": "sslCallback",
+        "kind": 2,
+        "importPath": "apps.shop.views",
+        "description": "apps.shop.views",
+        "peekOfCode": "def sslCallback(request, pk):\n    print(pk)\n    return render(request, \"ssl_success.html\")",
         "detail": "apps.shop.views",
         "documentation": {}
     },
@@ -831,7 +967,7 @@
         "kind": 5,
         "importPath": "core.settings",
         "description": "core.settings",
-        "peekOfCode": "ALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'apps.authentications',",
+        "peekOfCode": "ALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'corsheaders',",
         "detail": "core.settings",
         "documentation": {}
     },
@@ -840,7 +976,7 @@
         "kind": 5,
         "importPath": "core.settings",
         "description": "core.settings",
-        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'apps.authentications',\n    'apps.customers',\n    'apps.shop.apps.ShopConfig',",
+        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'corsheaders',\n    'apps.authentications',\n    'apps.customers',",
         "detail": "core.settings",
         "documentation": {}
     },
@@ -849,7 +985,7 @@
         "kind": 5,
         "importPath": "core.settings",
         "description": "core.settings",
-        "peekOfCode": "AUTH_USER_MODEL = 'authentications.User'\nMIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n    'apps.authentications.middleware.AuthenticationMiddleware'",
+        "peekOfCode": "AUTH_USER_MODEL = 'authentications.User'\nMIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    \"corsheaders.middleware.CorsMiddleware\",\n    'django.middleware.common.CommonMiddleware',\n    'apps.authentications.middleware.SSLCSRF',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',",
         "detail": "core.settings",
         "documentation": {}
     },
@@ -858,7 +994,7 @@
         "kind": 5,
         "importPath": "core.settings",
         "description": "core.settings",
-        "peekOfCode": "MIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n    'apps.authentications.middleware.AuthenticationMiddleware'\n]",
+        "peekOfCode": "MIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    \"corsheaders.middleware.CorsMiddleware\",\n    'django.middleware.common.CommonMiddleware',\n    'apps.authentications.middleware.SSLCSRF',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',",
         "detail": "core.settings",
         "documentation": {}
     },
@@ -948,7 +1084,7 @@
         "kind": 5,
         "importPath": "core.settings",
         "description": "core.settings",
-        "peekOfCode": "STATIC_URL = 'static/'\nSTATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]\nSTATIC_ROOT = os.path.join(BASE_DIR, 'statics')\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\nMEDIA_URL = '/media/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "STATIC_URL = 'static/'\nSTATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]\nSTATIC_ROOT = os.path.join(BASE_DIR, 'statics')\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\nMEDIA_URL = '/media/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCSRF_TRUSTED_ORIGINS = [\n    'https://sandbox.sslcommerz.com', 'https://127.0.0.1', 'https://null.com']",
         "detail": "core.settings",
         "documentation": {}
     },
@@ -957,7 +1093,7 @@
         "kind": 5,
         "importPath": "core.settings",
         "description": "core.settings",
-        "peekOfCode": "STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]\nSTATIC_ROOT = os.path.join(BASE_DIR, 'statics')\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\nMEDIA_URL = '/media/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]\nSTATIC_ROOT = os.path.join(BASE_DIR, 'statics')\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\nMEDIA_URL = '/media/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCSRF_TRUSTED_ORIGINS = [\n    'https://sandbox.sslcommerz.com', 'https://127.0.0.1', 'https://null.com']\nCORS_ALLOW_ALL_ORIGINS = True",
         "detail": "core.settings",
         "documentation": {}
     },
@@ -966,7 +1102,7 @@
         "kind": 5,
         "importPath": "core.settings",
         "description": "core.settings",
-        "peekOfCode": "STATIC_ROOT = os.path.join(BASE_DIR, 'statics')\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\nMEDIA_URL = '/media/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "STATIC_ROOT = os.path.join(BASE_DIR, 'statics')\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\nMEDIA_URL = '/media/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCSRF_TRUSTED_ORIGINS = [\n    'https://sandbox.sslcommerz.com', 'https://127.0.0.1', 'https://null.com']\nCORS_ALLOW_ALL_ORIGINS = True",
         "detail": "core.settings",
         "documentation": {}
     },
@@ -975,7 +1111,7 @@
         "kind": 5,
         "importPath": "core.settings",
         "description": "core.settings",
-        "peekOfCode": "MEDIA_ROOT = os.path.join(BASE_DIR, 'media')\nMEDIA_URL = '/media/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "MEDIA_ROOT = os.path.join(BASE_DIR, 'media')\nMEDIA_URL = '/media/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCSRF_TRUSTED_ORIGINS = [\n    'https://sandbox.sslcommerz.com', 'https://127.0.0.1', 'https://null.com']\nCORS_ALLOW_ALL_ORIGINS = True",
         "detail": "core.settings",
         "documentation": {}
     },
@@ -984,7 +1120,7 @@
         "kind": 5,
         "importPath": "core.settings",
         "description": "core.settings",
-        "peekOfCode": "MEDIA_URL = '/media/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "MEDIA_URL = '/media/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCSRF_TRUSTED_ORIGINS = [\n    'https://sandbox.sslcommerz.com', 'https://127.0.0.1', 'https://null.com']\nCORS_ALLOW_ALL_ORIGINS = True",
         "detail": "core.settings",
         "documentation": {}
     },
@@ -993,7 +1129,25 @@
         "kind": 5,
         "importPath": "core.settings",
         "description": "core.settings",
-        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCSRF_TRUSTED_ORIGINS = [\n    'https://sandbox.sslcommerz.com', 'https://127.0.0.1', 'https://null.com']\nCORS_ALLOW_ALL_ORIGINS = True",
+        "detail": "core.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CSRF_TRUSTED_ORIGINS",
+        "kind": 5,
+        "importPath": "core.settings",
+        "description": "core.settings",
+        "peekOfCode": "CSRF_TRUSTED_ORIGINS = [\n    'https://sandbox.sslcommerz.com', 'https://127.0.0.1', 'https://null.com']\nCORS_ALLOW_ALL_ORIGINS = True",
+        "detail": "core.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CORS_ALLOW_ALL_ORIGINS",
+        "kind": 5,
+        "importPath": "core.settings",
+        "description": "core.settings",
+        "peekOfCode": "CORS_ALLOW_ALL_ORIGINS = True",
         "detail": "core.settings",
         "documentation": {}
     },

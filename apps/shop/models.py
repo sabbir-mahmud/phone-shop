@@ -65,3 +65,19 @@ class Order(Wrapper):
 
     def __str__(self) -> str:
         return str(self.id)
+
+
+class Payment(Wrapper):
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    orders = models.ManyToManyField(Order)
+    carts = models.CharField(max_length=100, blank=True, null=True, default="")
+    amount = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    discount = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    gateway = models.CharField(max_length=50, blank=True, null=True)
+    payment_id = models.CharField(max_length=100, blank=True, null=True)
+    payment_secret = models.CharField(max_length=100, blank=True, null=True)
+    is_paid = models.BooleanField(default=False)
+    payment_status = models.CharField(max_length=100, blank=True, null=True)
+
+    def __str__(self) -> str:
+        return str(self.id)

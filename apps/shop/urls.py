@@ -1,4 +1,5 @@
 from django.urls import path
+from django.views.decorators.csrf import csrf_exempt
 
 from . import views
 
@@ -10,4 +11,9 @@ urlpatterns = [
          views.remove_quantity, name="remove-quantity"),
     path('remove-item/<str:pk>/',
          views.remove_from_cart, name="remove-cart"),
+    path('generate-payment', views.generatePayment, name="generate-payment"),
+    path('payment/<str:pk>/', views.selectGateway, name="select-gateway"),
+    path('payment/ssl-commerce/<str:pk>/', views.sslCommerce, name="ssl-com"),
+    path('payment/ssl-commerce/callback/<str:pk>/',
+         csrf_exempt(views.sslCallback), name="ssl-callback"),
 ]

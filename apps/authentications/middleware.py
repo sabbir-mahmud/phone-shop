@@ -1,17 +1,70 @@
+import django.urls
+from django.middleware.csrf import get_token
 from django.shortcuts import redirect
-from django.urls import reverse
+from sslcommerz_lib import SSLCOMMERZ
+
+from apps.shop.models import Cart, Payment
+
+
+class SSLCSRF:
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        print(type(request.META))
+        if "HTTP_ORIGIN" in request.META:
+            if request.META["HTTP_ORIGIN"] != 'null':
+                pass
+            else:
+                if request.method == "POST" or request.method == "post":
+                    settings = {'store_id': 'sabbi64edd5c46bbad',
+                                'store_pass': 'sabbi64edd5c46bbad@ssl', 'issandbox': True}
+                    payment = SSLCOMMERZ(settings)
+                    pay_id = request.POST.get("tran_id")
+                    status = payment.transaction_query_tranid(pay_id)
+
+                    if status['element'][0]["status"] == "VALID":
+                        payment = Payment.objects.get(
+                            id=status['element'][0]["value_d"])
+                        payment.payment_id = pay_id
+                        payment.is_paid = True
+                        payment.save()
+
+                        for i in payment.carts.split(","):
+                            if i:
+                                cart = Cart.objects.get(id=i)
+                                cart.delete()
+                        url = f"/payment/ssl-commerce/callback/{payment.id}/"
+                        return redirect(url)
+                    else:
+                        print("Not Valid")
+
+        response = self.get_response(request)
+        return response
+
 
 class AuthenticationMiddleware:
     def __init__(self, get_response):
         self.get_response = get_response
 
     def __call__(self, request):
-        # Check if the user is authenticated
+
+        if request.path == "/auth/login/" or request.path == "/auth/register/" or request.path == "/" or request.path == "/payment/ssl-commerce/callback/":
+            print("--------------------------------------------")
+            print("line 12")
+            print(request.user)
+            response = self.get_response(request)
+            return response
+
         if not request.user.is_authenticated:
-            # If not authenticated, redirect to the login page
-            login_url = reverse('login')  # Change 'login' to your actual login view name
-            if request.path != login_url:
-                return redirect(login_url)
+            print("--------------------------------------------")
+            print("--------------------------------------------")
+            print('line 20')
+
+            if request.path != "/auth/login/":
+                return redirect("login")
 
         response = self.get_response(request)
+        return response
+        return response
         return response
