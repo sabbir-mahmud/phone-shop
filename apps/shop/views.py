@@ -10,7 +10,7 @@ from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 from sslcommerz_python.payment import SSLCSession
 
-from .models import Cart, Order, Payment, Phone
+from .models import Cart, DeliveryAddress, Order, Payment, Phone
 
 stripe.api_key = "sk_test_51L0hxlEZlpATTp015WVNZvrzVgm1NSJpOgyGwploURgse2aEcf3PpIS1gCuu7gbWG0xf6QTXKAUsSVNxZUCSQAgG00H5nfUUcD"
 
@@ -73,6 +73,8 @@ def generatePayment(request):
         amount = 0
         payment = Payment()
         payment.user_id = request.user
+        payment.delivery = DeliveryAddress.objects.get(
+            user_id=request.user) if DeliveryAddress.objects.filter(user_id=request.user).exists else None
         payment.save()
         for cart in carts:
             if cart:

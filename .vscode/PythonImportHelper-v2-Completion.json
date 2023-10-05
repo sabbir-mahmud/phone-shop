@@ -48,6 +48,38 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -622,11 +654,29 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "apps.authentications.migrations.0002_user_phone",
+        "description": "apps.authentications.migrations.0002_user_phone",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('authentications', '0001_initial'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='user',\n            name='phone',\n            field=models.EmailField(blank=True, max_length=245, null=True, unique=True),\n        ),",
+        "detail": "apps.authentications.migrations.0002_user_phone",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "apps.authentications.migrations.0003_alter_user_phone",
+        "description": "apps.authentications.migrations.0003_alter_user_phone",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('authentications', '0002_user_phone'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='user',\n            name='phone',\n            field=models.CharField(blank=True, max_length=245, null=True, unique=True),\n        ),",
+        "detail": "apps.authentications.migrations.0003_alter_user_phone",
+        "documentation": {}
+    },
+    {
         "label": "UserAdmin",
         "kind": 6,
         "importPath": "apps.authentications.admin",
         "description": "apps.authentications.admin",
-        "peekOfCode": "class UserAdmin(BaseUserAdmin):\n    form = UserAdminChangeForm\n    add_form = UserAdminCreationForm\n    list_display = ['email', 'first_name', 'last_name', 'admin']\n    list_filter = ['admin']\n    fieldsets = (\n        (None, {'fields': ('email', 'password')}),\n        ('Personal info', {\n         'fields': ('first_name', 'last_name', 'gender')}),\n        ('Permissions', {'fields': ('staff', 'admin',)}),",
+        "peekOfCode": "class UserAdmin(BaseUserAdmin):\n    form = UserAdminChangeForm\n    add_form = UserAdminCreationForm\n    list_display = ['email', 'first_name', 'last_name', 'admin']\n    list_filter = ['admin']\n    fieldsets = (\n        (None, {'fields': ('email', 'phone', 'password')}),\n        ('Personal info', {\n         'fields': ('first_name', 'last_name', 'gender')}),\n        ('Permissions', {'fields': ('staff', 'admin',)}),",
         "detail": "apps.authentications.admin",
         "documentation": {}
     },
@@ -707,7 +757,7 @@
         "kind": 6,
         "importPath": "apps.authentications.models",
         "description": "apps.authentications.models",
-        "peekOfCode": "class User(AbstractBaseUser):\n    genders = (\n        ('Male', 'Male'),\n        ('Female', 'Female'),\n        ('Others', 'Others'),\n    )\n    email = models.EmailField(max_length=245, unique=True)\n    first_name = models.CharField(max_length=245)\n    last_name = models.CharField(max_length=245)\n    gender = models.CharField(max_length=245, choices=genders)",
+        "peekOfCode": "class User(AbstractBaseUser):\n    genders = (\n        ('Male', 'Male'),\n        ('Female', 'Female'),\n        ('Others', 'Others'),\n    )\n    email = models.EmailField(max_length=245, unique=True)\n    phone = models.CharField(\n        max_length=245, unique=True, blank=True, null=True)\n    first_name = models.CharField(max_length=245)",
         "detail": "apps.authentications.models",
         "documentation": {}
     },
@@ -932,7 +982,7 @@
         "kind": 6,
         "importPath": "apps.shop.models",
         "description": "apps.shop.models",
-        "peekOfCode": "class DeliveryAddress(Wrapper):\n    user_id = models.OneToOneField(User, on_delete=models.CASCADE)\n    country = models.CharField(max_length=30)\n    state = models.CharField(max_length=30)\n    city = models.CharField(max_length=30)\n    street_address = models.CharField(max_length=255)\nclass Payment(Wrapper):\n    user_id = models.ForeignKey(User, on_delete=models.CASCADE)\n    orders = models.ManyToManyField(Order)\n    carts = models.CharField(max_length=100, blank=True, null=True, default=\"\")",
+        "peekOfCode": "class DeliveryAddress(Wrapper):\n    user_id = models.OneToOneField(User, on_delete=models.CASCADE)\n    country = models.CharField(max_length=30)\n    state = models.CharField(max_length=30)\n    city = models.CharField(max_length=30)\n    street_address = models.CharField(max_length=255)\n    def __str__(self) -> str:\n        return f\"{self.user_id}\"\nclass Payment(Wrapper):\n    user_id = models.ForeignKey(User, on_delete=models.CASCADE)",
         "detail": "apps.shop.models",
         "documentation": {}
     },
@@ -1022,7 +1072,7 @@
         "kind": 2,
         "importPath": "apps.shop.views",
         "description": "apps.shop.views",
-        "peekOfCode": "def generatePayment(request):\n    if request.method == \"POST\":\n        carts = json.loads(request.POST.get(\"carts\"))\n        amount = 0\n        payment = Payment()\n        payment.user_id = request.user\n        payment.save()\n        for cart in carts:\n            if cart:\n                item = Cart.objects.get(id=cart)",
+        "peekOfCode": "def generatePayment(request):\n    if request.method == \"POST\":\n        carts = json.loads(request.POST.get(\"carts\"))\n        amount = 0\n        payment = Payment()\n        payment.user_id = request.user\n        payment.delivery = DeliveryAddress.objects.get(\n            user_id=request.user) if DeliveryAddress.objects.filter(user_id=request.user).exists else None\n        payment.save()\n        for cart in carts:",
         "detail": "apps.shop.views",
         "documentation": {}
     },

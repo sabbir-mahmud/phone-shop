@@ -33,6 +33,8 @@ class User(AbstractBaseUser):
         ('Others', 'Others'),
     )
     email = models.EmailField(max_length=245, unique=True)
+    phone = models.CharField(
+        max_length=245, unique=True, blank=True, null=True)
     first_name = models.CharField(max_length=245)
     last_name = models.CharField(max_length=245)
     gender = models.CharField(max_length=245, choices=genders)

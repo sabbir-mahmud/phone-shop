@@ -1,17 +1,41 @@
 {% include 'base.html' %}
 {% block Content %}
 <section class="container">
-  <div>
-    customer details
-    <h1>name : {{payment.user_id.first_name}} {{payment.user_id.last_name}}</h1>
-    <h1>email : {{payment.user_id}} </h1>
-  </div>
-  <div>
-    payment details
-    <h1>total payment: {{payment.amount}}</h1>
-    <h1>total discount: {{payment.discount}}</h1>
-  </div>
-  <a href="{% url 'ssl-com' payID  %}" class="btn btn-primary">SSLCommerce</a>
-  <a href="{% url 'stripe-intent' payID %}" class="btn btn-primary">Stripe</a>  
+  <section class="invoice my-3">
+    <h3>Invoice</h3>
+    <hr>
+    <div>
+      <h4>Customer Details</h4>
+      <hr>
+        <p class="mx-2"><span class="fw-bold">name:</span>  {{payment.user_id.first_name}} {{payment.user_id.last_name}}  <span class="fw-bold">email:</span>  {{payment.user_id}} <span class="fw-bold">phone:</span>  {{payment.user_id.phone}} </p>
+      {% if payment.delivery %}
+      <div>
+        <p class="mx-2">
+          <span class="fw-bold">Address:</span> {{payment.delivery.street_address}}, {{payment.delivery.city}}, {{payment.delivery.state}}
+        </p>
+      </div>
+      {% else %}
+      <p class="mx-2">No delivery details found</p>
+      {% endif %}
+    </div>
+    <hr>
+    <div>
+      <h4>payment details</h4>
+      <hr>
+      <p class="mx-2"><span class="fw-bold">discount:</span> {{payment.discount}} <span class="fw-bold">total amount: </span>{{payment.amount}}</p>
+    </div>
+    <hr>
+    <div>
+      <h4>Ordered Items</h4>
+      {% for order in payment.orders.all %}
+      <hr>
+      <p class="mx-2"><span class="fw-bold">details:</span> {{order.phone_id.brand_name}} {{order.phone_id.model}} {{order.phone_id.colors}} <span class="fw-bold">amount:</span>
+        {{order.phone_id.discount_price}}</p>
+      {% endfor %}
+      <hr>
+    </div>
+    <a href="{% url 'ssl-com' payID  %}" class="btn btn-primary">Pay with SSLCommerce</a>
+    <a href="{% url 'stripe-intent' payID %}" class="btn btn-primary">Pay with Stripe</a>
+  </section>
 </section>
 {% endblock %}

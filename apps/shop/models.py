@@ -74,6 +74,9 @@ class DeliveryAddress(Wrapper):
     city = models.CharField(max_length=30)
     street_address = models.CharField(max_length=255)
 
+    def __str__(self) -> str:
+        return f"{self.user_id}"
+
 
 class Payment(Wrapper):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -90,4 +93,4 @@ class Payment(Wrapper):
         DeliveryAddress, on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self) -> str:
-        return str(self.id)
+        return f"{self.id}"

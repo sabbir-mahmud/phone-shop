@@ -18,73 +18,77 @@
       {% if carts %}
       {% for cart in carts %}
       <tr>
-        <td class="select-td"><input onclick="checkHandler(this)" class="order-selected" type="checkbox"><input type="hidden" value="{{cart.id}}"></td>
+        <td class="select-td"><input onclick="checkHandler(this)" class="order-selected" type="checkbox"><input
+            type="hidden" value="{{cart.id}}"></td>
         <td>{{cart.phone_id.brand_name}}</td>
         <td>{{cart.phone_id.model}}</td>
         <td>{{cart.phone_id.discount_price}}</td>
-        <td> <a href="{% url 'remove-quantity' cart.id %}"> - </a>  {{cart.quantity}} <a href="{% url 'add-to-cart' cart.phone_id.id %}">+</a></td>
+        <td> <a href="{% url 'remove-quantity' cart.id %}"> - </a> {{cart.quantity}} <a
+            href="{% url 'add-to-cart' cart.phone_id.id %}">+</a></td>
         <td>
-          {{cart.sub_total}}   
+          {{cart.sub_total}}
         </td>
         <td>
           <a class="btn btn-danger " href="{% url 'remove-cart' cart.id %}">remove</a>
         </td>
       </tr>
-      {% endfor %}      
+      {% endfor %}
+
       {% else %}
-      <tr><td colspan="6">No items added to the cart</td></tr>
-      
+      <tr>
+        <td colspan="6">No items added to the cart</td>
+      </tr>
       {% endif %}
     </tbody>
   </table>
 
+  {% if carts %}
   <form action="{% url 'generate-payment' %}" method="post">
     {% csrf_token %}
     <input id="cartIds" name="carts" type="hidden" value="[]">
-    <button class="btn btn-primary" type="submit" id="continue">Continue</button>
+    <button class="btn btn-primary" type="submit" id="continue">place order</button>
   </form>
+  {% endif %}
 
   <script>
-    function cartIdHandler(id){
+    function cartIdHandler(id) {
       const selectedIds = document.getElementById("cartIds")
       const selectedItemsID = JSON.parse(selectedIds.value)
       console.log(selectedItemsID)
-      if (selectedItemsID.includes(id)){
+      if (selectedItemsID.includes(id)) {
         console.log('id exists')
         let index = selectedItemsID.indexOf(id)
         selectedItemsID.splice(index, 1)
-      }else{
+      } else {
         selectedItemsID.push(id)
         console.log('id not exists')
       }
 
       const selectedItemsIDJson = JSON.stringify(selectedItemsID)
-      selectedIds.value =  selectedItemsIDJson
+      selectedIds.value = selectedItemsIDJson
 
     }
 
-    function checkHandler(e){
-        let id = parseInt(e.nextElementSibling.value)
-        cartIdHandler(id) 
-    }  
+    function checkHandler(e) {
+      let id = parseInt(e.nextElementSibling.value)
+      cartIdHandler(id)
+    }
 
-    function bulkSelector(){
+    function bulkSelector() {
       const ids = []
       const targets = document.querySelectorAll(".select-td")
-      targets.forEach(target=>{
+      targets.forEach(target => {
         const selectInput = target.children[0]
         const id = parseInt(target.children[1].value)
         selectInput.checked = !selectInput.checked
         ids.push(id)
       })
-      
-      ids.forEach(id=>{
-        cartIdHandler(id)        
+
+      ids.forEach(id => {
+        cartIdHandler(id)
       })
-      
+
     }
-    
-    
   </script>
 </section>
 
