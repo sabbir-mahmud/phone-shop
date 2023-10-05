@@ -1,12 +1,12 @@
-{% include 'base.html' %}
+{% extends 'base.html' %}
 {% block Head %}
 <script src="https://js.stripe.com/v3/"></script>
 {% endblock Head %}
 
 {% block Content %}
-<section class="container">
+<section class="container my-3">
   <form id='payment-form'>
-    <h2>Payment</h2>
+    <h2>Pay with stripe</h2>
     {%csrf_token%}
     <div style="padding-left: 0.3em;">    
         <div id="payment-element" style="margin-top: 4vh; display: grid; grid-template-columns: auto;">
