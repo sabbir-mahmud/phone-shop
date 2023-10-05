@@ -1,6 +1,16 @@
 {% include 'base.html' %}
 {% block Content %}
 <section class="container">
+  <div>
+    customer details
+    <h1>name : {{payment.user_id.first_name}} {{payment.user_id.last_name}}</h1>
+    <h1>email : {{payment.user_id}} </h1>
+  </div>
+  <div>
+    payment details
+    <h1>total payment: {{payment.amount}}</h1>
+    <h1>total discount: {{payment.discount}}</h1>
+  </div>
   <a href="{% url 'ssl-com' payID  %}" class="btn btn-primary">SSLCommerce</a>
   <a href="{% url 'stripe-intent' payID %}" class="btn btn-primary">Stripe</a>  
 </section>

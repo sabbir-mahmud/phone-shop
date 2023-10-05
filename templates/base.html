@@ -41,8 +41,9 @@
               {{request.user.first_name}}
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">My Account</a></li>
-              <li><a class="dropdown-item" href="#">Orders</a></li>
+              <li><a class="dropdown-item" href="{% url 'profile' %}">My Account</a></li>
+              <li><a class="dropdown-item" href="{% url 'settings' %}">settings</a></li>
+              <li><a class="dropdown-item" href="{% url 'orders-status' %}">Orders</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>

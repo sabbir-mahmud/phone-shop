@@ -1,3 +1,4 @@
+import json
 from decimal import Decimal
 
 import stripe
@@ -68,7 +69,7 @@ def remove_from_cart(request, pk):
 
 def generatePayment(request):
     if request.method == "POST":
-        carts = request.POST.get("carts").split(',')
+        carts = json.loads(request.POST.get("carts"))
         amount = 0
         payment = Payment()
         payment.user_id = request.user
@@ -94,7 +95,8 @@ def generatePayment(request):
 
 
 def selectGateway(request, pk):
-    context = {"payID": pk}
+    payment = Payment.objects.get(id=pk)
+    context = {"payID": pk, "payment": payment}
     return render(request, "payments/gateway.html", context)
 
 
@@ -167,7 +169,7 @@ def stripe_callback(request):
         payment.payment_status = "Success"
         payment.payment_id = payment_intent["id"]
         payment.save()
-        for i in payment.carts.split(","):
+        for i in json.loads(payment.carts):
             if i:
                 cart = Cart.objects.get(id=i)
                 cart.delete()
