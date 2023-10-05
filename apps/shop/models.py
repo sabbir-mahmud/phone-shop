@@ -67,6 +67,14 @@ class Order(Wrapper):
         return str(self.id)
 
 
+class DeliveryAddress(Wrapper):
+    user_id = models.OneToOneField(User, on_delete=models.CASCADE)
+    country = models.CharField(max_length=30)
+    state = models.CharField(max_length=30)
+    city = models.CharField(max_length=30)
+    street_address = models.CharField(max_length=255)
+
+
 class Payment(Wrapper):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
     orders = models.ManyToManyField(Order)
@@ -78,6 +86,8 @@ class Payment(Wrapper):
     payment_secret = models.CharField(max_length=100, blank=True, null=True)
     is_paid = models.BooleanField(default=False)
     payment_status = models.CharField(max_length=100, blank=True, null=True)
+    delivery = models.ForeignKey(
+        DeliveryAddress, on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self) -> str:
         return str(self.id)

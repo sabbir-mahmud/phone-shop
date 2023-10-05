@@ -24,6 +24,14 @@
         "documentation": {}
     },
     {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
         "label": "migrations",
         "importPath": "django.db",
         "description": "django.db",
@@ -41,6 +49,38 @@
     },
     {
         "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
         "importPath": "django.db",
         "description": "django.db",
         "isExtraImport": true,
@@ -789,6 +829,24 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "apps.shop.migrations.0003_deliveryaddress",
+        "description": "apps.shop.migrations.0003_deliveryaddress",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n        ('shop', '0002_payment_carts'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='DeliveryAddress',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),",
+        "detail": "apps.shop.migrations.0003_deliveryaddress",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "apps.shop.migrations.0004_payment_delivery",
+        "description": "apps.shop.migrations.0004_payment_delivery",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('shop', '0003_deliveryaddress'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='payment',\n            name='delivery',\n            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='shop.deliveryaddress'),\n        ),",
+        "detail": "apps.shop.migrations.0004_payment_delivery",
+        "documentation": {}
+    },
+    {
         "label": "ShopConfig",
         "kind": 6,
         "importPath": "apps.shop.apps",
@@ -866,6 +924,15 @@
         "importPath": "apps.shop.models",
         "description": "apps.shop.models",
         "peekOfCode": "class Order(Wrapper):\n    phone_id = models.ForeignKey(Phone, on_delete=models.CASCADE)\n    user_id = models.ForeignKey(User, on_delete=models.CASCADE)\n    quantity = models.IntegerField()\n    amount = models.DecimalField(max_digits=10, decimal_places=2)\n    amount_charged = models.DecimalField(max_digits=10, decimal_places=2)\n    discount = models.DecimalField(max_digits=10, decimal_places=2)\n    delivery_charge = models.DecimalField(\n        max_digits=10, decimal_places=2, default=100)\n    def __str__(self) -> str:",
+        "detail": "apps.shop.models",
+        "documentation": {}
+    },
+    {
+        "label": "DeliveryAddress",
+        "kind": 6,
+        "importPath": "apps.shop.models",
+        "description": "apps.shop.models",
+        "peekOfCode": "class DeliveryAddress(Wrapper):\n    user_id = models.OneToOneField(User, on_delete=models.CASCADE)\n    country = models.CharField(max_length=30)\n    state = models.CharField(max_length=30)\n    city = models.CharField(max_length=30)\n    street_address = models.CharField(max_length=255)\nclass Payment(Wrapper):\n    user_id = models.ForeignKey(User, on_delete=models.CASCADE)\n    orders = models.ManyToManyField(Order)\n    carts = models.CharField(max_length=100, blank=True, null=True, default=\"\")",
         "detail": "apps.shop.models",
         "documentation": {}
     },
