@@ -15,7 +15,7 @@
         </p>
       </div>
       {% else %}
-      <p class="mx-2">No delivery details found</p>
+      <p class="mx-2">No delivery details found </p>
       {% endif %}
     </div>
     <hr>
@@ -34,8 +34,12 @@
       {% endfor %}
       <hr>
     </div>
+    {% if payment.delivery %}
     <a href="{% url 'ssl-com' payID  %}" class="btn btn-primary">Pay with SSLCommerce</a>
     <a href="{% url 'stripe-intent' payID %}" class="btn btn-primary">Pay with Stripe</a>
+    {% else %}
+    <a class="btn btn-warning" href="">add delivery details</a>
+    {% endif %}
   </section>
 </section>
 {% endblock %}

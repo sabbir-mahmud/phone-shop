@@ -74,7 +74,7 @@ def generatePayment(request):
         payment = Payment()
         payment.user_id = request.user
         payment.delivery = DeliveryAddress.objects.get(
-            user_id=request.user) if DeliveryAddress.objects.filter(user_id=request.user).exists else None
+            user_id=request.user) if DeliveryAddress.objects.filter(user_id=request.user).exists() else None
         payment.save()
         for cart in carts:
             if cart:

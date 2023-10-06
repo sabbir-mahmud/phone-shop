@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.views import View
 
+from apps.shop.models import Order
+
 
 class ProfileView(View):
     def get(self, request):
@@ -14,4 +16,6 @@ class SettingsView(View):
 
 class OrderView(View):
     def get(self, request):
-        return render(request, 'profile/orders.html')
+        orders = Order.objects.filter(user_id=request.user)
+        context = {"orders": orders}
+        return render(request, 'orders/orders.html', context)

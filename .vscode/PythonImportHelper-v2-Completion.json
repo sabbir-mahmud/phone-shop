@@ -160,6 +160,22 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -497,20 +513,11 @@
         "documentation": {}
     },
     {
-        "label": "json",
-        "kind": 6,
+        "label": "Order",
+        "importPath": "apps.shop.models",
+        "description": "apps.shop.models",
         "isExtraImport": true,
-        "importPath": "json",
-        "description": "json",
-        "detail": "json",
-        "documentation": {}
-    },
-    {
-        "label": "SSLCOMMERZ",
-        "importPath": "sslcommerz_lib",
-        "description": "sslcommerz_lib",
-        "isExtraImport": true,
-        "detail": "sslcommerz_lib",
+        "detail": "apps.shop.models",
         "documentation": {}
     },
     {
@@ -527,6 +534,23 @@
         "description": "apps.shop.models",
         "isExtraImport": true,
         "detail": "apps.shop.models",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "SSLCOMMERZ",
+        "importPath": "sslcommerz_lib",
+        "description": "sslcommerz_lib",
+        "isExtraImport": true,
+        "detail": "sslcommerz_lib",
         "documentation": {}
     },
     {
@@ -838,7 +862,7 @@
         "kind": 6,
         "importPath": "apps.customers.views",
         "description": "apps.customers.views",
-        "peekOfCode": "class ProfileView(View):\n    def get(self, request):\n        return render(request, 'profile/profile.html')\nclass SettingsView(View):\n    def get(self, request):\n        return render(request, 'profile/settings.html')\nclass OrderView(View):\n    def get(self, request):\n        return render(request, 'profile/orders.html')",
+        "peekOfCode": "class ProfileView(View):\n    def get(self, request):\n        return render(request, 'profile/profile.html')\nclass SettingsView(View):\n    def get(self, request):\n        return render(request, 'profile/settings.html')\nclass OrderView(View):\n    def get(self, request):\n        orders = Order.objects.filter(user_id=request.user)\n        context = {\"orders\": orders}",
         "detail": "apps.customers.views",
         "documentation": {}
     },
@@ -847,7 +871,7 @@
         "kind": 6,
         "importPath": "apps.customers.views",
         "description": "apps.customers.views",
-        "peekOfCode": "class SettingsView(View):\n    def get(self, request):\n        return render(request, 'profile/settings.html')\nclass OrderView(View):\n    def get(self, request):\n        return render(request, 'profile/orders.html')",
+        "peekOfCode": "class SettingsView(View):\n    def get(self, request):\n        return render(request, 'profile/settings.html')\nclass OrderView(View):\n    def get(self, request):\n        orders = Order.objects.filter(user_id=request.user)\n        context = {\"orders\": orders}\n        return render(request, 'orders/orders.html', context)",
         "detail": "apps.customers.views",
         "documentation": {}
     },
@@ -856,7 +880,7 @@
         "kind": 6,
         "importPath": "apps.customers.views",
         "description": "apps.customers.views",
-        "peekOfCode": "class OrderView(View):\n    def get(self, request):\n        return render(request, 'profile/orders.html')",
+        "peekOfCode": "class OrderView(View):\n    def get(self, request):\n        orders = Order.objects.filter(user_id=request.user)\n        context = {\"orders\": orders}\n        return render(request, 'orders/orders.html', context)",
         "detail": "apps.customers.views",
         "documentation": {}
     },
@@ -894,6 +918,15 @@
         "description": "apps.shop.migrations.0004_payment_delivery",
         "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('shop', '0003_deliveryaddress'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='payment',\n            name='delivery',\n            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='shop.deliveryaddress'),\n        ),",
         "detail": "apps.shop.migrations.0004_payment_delivery",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "apps.shop.migrations.0005_order_delivery_status",
+        "description": "apps.shop.migrations.0005_order_delivery_status",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('shop', '0004_payment_delivery'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='order',\n            name='delivery_status',\n            field=models.CharField(blank=True, default='pending', max_length=30, null=True),\n        ),",
+        "detail": "apps.shop.migrations.0005_order_delivery_status",
         "documentation": {}
     },
     {
@@ -964,7 +997,7 @@
         "kind": 6,
         "importPath": "apps.shop.models",
         "description": "apps.shop.models",
-        "peekOfCode": "class Cart(Wrapper):\n    phone_id = models.ForeignKey(Phone, on_delete=models.CASCADE)\n    user_id = models.ForeignKey(User, on_delete=models.CASCADE)\n    quantity = models.IntegerField()\n    sub_total = models.DecimalField(\n        max_digits=10, decimal_places=2, default=100)\n    def __str__(self) -> str:\n        return str(self.id)\nclass Order(Wrapper):\n    phone_id = models.ForeignKey(Phone, on_delete=models.CASCADE)",
+        "peekOfCode": "class Cart(Wrapper):\n    phone_id = models.ForeignKey(Phone, on_delete=models.CASCADE)\n    user_id = models.ForeignKey(User, on_delete=models.CASCADE)\n    quantity = models.IntegerField()\n    sub_total = models.DecimalField(\n        max_digits=10, decimal_places=2, default=100)\n    def __str__(self) -> str:\n        return str(self.id)\nclass Order(Wrapper):\n    status = (('pending', 'pending'), ('shipped', 'shipped'),",
         "detail": "apps.shop.models",
         "documentation": {}
     },
@@ -973,7 +1006,7 @@
         "kind": 6,
         "importPath": "apps.shop.models",
         "description": "apps.shop.models",
-        "peekOfCode": "class Order(Wrapper):\n    phone_id = models.ForeignKey(Phone, on_delete=models.CASCADE)\n    user_id = models.ForeignKey(User, on_delete=models.CASCADE)\n    quantity = models.IntegerField()\n    amount = models.DecimalField(max_digits=10, decimal_places=2)\n    amount_charged = models.DecimalField(max_digits=10, decimal_places=2)\n    discount = models.DecimalField(max_digits=10, decimal_places=2)\n    delivery_charge = models.DecimalField(\n        max_digits=10, decimal_places=2, default=100)\n    def __str__(self) -> str:",
+        "peekOfCode": "class Order(Wrapper):\n    status = (('pending', 'pending'), ('shipped', 'shipped'),\n              ('delivered', 'delivered'))\n    phone_id = models.ForeignKey(Phone, on_delete=models.CASCADE)\n    user_id = models.ForeignKey(User, on_delete=models.CASCADE)\n    quantity = models.IntegerField()\n    amount = models.DecimalField(max_digits=10, decimal_places=2)\n    amount_charged = models.DecimalField(max_digits=10, decimal_places=2)\n    discount = models.DecimalField(max_digits=10, decimal_places=2)\n    delivery_charge = models.DecimalField(",
         "detail": "apps.shop.models",
         "documentation": {}
     },
@@ -1072,7 +1105,7 @@
         "kind": 2,
         "importPath": "apps.shop.views",
         "description": "apps.shop.views",
-        "peekOfCode": "def generatePayment(request):\n    if request.method == \"POST\":\n        carts = json.loads(request.POST.get(\"carts\"))\n        amount = 0\n        payment = Payment()\n        payment.user_id = request.user\n        payment.delivery = DeliveryAddress.objects.get(\n            user_id=request.user) if DeliveryAddress.objects.filter(user_id=request.user).exists else None\n        payment.save()\n        for cart in carts:",
+        "peekOfCode": "def generatePayment(request):\n    if request.method == \"POST\":\n        carts = json.loads(request.POST.get(\"carts\"))\n        amount = 0\n        payment = Payment()\n        payment.user_id = request.user\n        payment.delivery = DeliveryAddress.objects.get(\n            user_id=request.user) if DeliveryAddress.objects.filter(user_id=request.user).exists() else None\n        payment.save()\n        for cart in carts:",
         "detail": "apps.shop.views",
         "documentation": {}
     },
