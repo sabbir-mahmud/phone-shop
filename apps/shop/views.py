@@ -10,7 +10,7 @@ from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 from sslcommerz_python.payment import SSLCSession
 
-from .models import Cart, DeliveryAddress, Order, Payment, Phone
+from .models import Brand, Cart, DeliveryAddress, Order, Payment, Phone
 
 stripe.api_key = "sk_test_51L0hxlEZlpATTp015WVNZvrzVgm1NSJpOgyGwploURgse2aEcf3PpIS1gCuu7gbWG0xf6QTXKAUsSVNxZUCSQAgG00H5nfUUcD"
 
@@ -24,8 +24,8 @@ class Home(View):
         max_price = request.GET.get('max_price')
         phone_list = Phone.objects.all().order_by("-id")
 
-        # if brand:
-        #     phone_list = phone_list.filter(brand_name__icontains=brand)
+        if brand:
+            phone_list = phone_list.filter(brand_name__id=brand)
         # if min_price:
         #     phone_list = phone_list.filter(price__gte=min_price)
         # if max_price:
@@ -42,7 +42,8 @@ class Home(View):
             phones = paginator.page(paginator.num_pages)
 
         context = {
-            "phones": phones
+            "phones": phones,
+            "brands": Brand.objects.all()
         }
 
         return render(request, 'shop/home.html', context)

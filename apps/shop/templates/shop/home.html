@@ -2,7 +2,15 @@
 {% block Content %}
 <section class="container">
   <div>
-    Filters
+    <form action="" method="get"> 
+      <select name="brand" id="">
+        <option value="">----------</option>
+        {% for brand in brands %}
+          <option value={{brand.id}}>{{brand.name}}</option>
+        {% endfor %}
+      </select>
+      <button type="submit">submit</button>
+    </form>
   </div>
 
   <div class="row mt-4 mb-4">

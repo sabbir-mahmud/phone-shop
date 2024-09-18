@@ -1076,7 +1076,7 @@
         "kind": 6,
         "importPath": "apps.shop.views",
         "description": "apps.shop.views",
-        "peekOfCode": "class Home(View):\n    def get(self, request):\n        brand = request.GET.get('brand')\n        min_price = request.GET.get('min_price')\n        max_price = request.GET.get('max_price')\n        phone_list = Phone.objects.all().order_by(\"-id\")\n        # if brand:\n        #     phone_list = phone_list.filter(brand_name__icontains=brand)\n        # if min_price:\n        #     phone_list = phone_list.filter(price__gte=min_price)",
+        "peekOfCode": "class Home(View):\n    def get(self, request):\n        brand = request.GET.get('brand')\n        min_price = request.GET.get('min_price')\n        max_price = request.GET.get('max_price')\n        phone_list = Phone.objects.all().order_by(\"-id\")\n        if brand:\n            phone_list = phone_list.filter(brand_name__id=brand)\n        # if min_price:\n        #     phone_list = phone_list.filter(price__gte=min_price)",
         "detail": "apps.shop.views",
         "documentation": {}
     },
@@ -1175,7 +1175,7 @@
         "kind": 5,
         "importPath": "apps.shop.views",
         "description": "apps.shop.views",
-        "peekOfCode": "stripe.api_key = \"sk_test_51L0hxlEZlpATTp015WVNZvrzVgm1NSJpOgyGwploURgse2aEcf3PpIS1gCuu7gbWG0xf6QTXKAUsSVNxZUCSQAgG00H5nfUUcD\"\nUser = get_user_model()\nclass Home(View):\n    def get(self, request):\n        brand = request.GET.get('brand')\n        min_price = request.GET.get('min_price')\n        max_price = request.GET.get('max_price')\n        phone_list = Phone.objects.all().order_by(\"-id\")\n        # if brand:\n        #     phone_list = phone_list.filter(brand_name__icontains=brand)",
+        "peekOfCode": "stripe.api_key = \"sk_test_51L0hxlEZlpATTp015WVNZvrzVgm1NSJpOgyGwploURgse2aEcf3PpIS1gCuu7gbWG0xf6QTXKAUsSVNxZUCSQAgG00H5nfUUcD\"\nUser = get_user_model()\nclass Home(View):\n    def get(self, request):\n        brand = request.GET.get('brand')\n        min_price = request.GET.get('min_price')\n        max_price = request.GET.get('max_price')\n        phone_list = Phone.objects.all().order_by(\"-id\")\n        if brand:\n            phone_list = phone_list.filter(brand_name__id=brand)",
         "detail": "apps.shop.views",
         "documentation": {}
     },
@@ -1184,7 +1184,7 @@
         "kind": 5,
         "importPath": "apps.shop.views",
         "description": "apps.shop.views",
-        "peekOfCode": "User = get_user_model()\nclass Home(View):\n    def get(self, request):\n        brand = request.GET.get('brand')\n        min_price = request.GET.get('min_price')\n        max_price = request.GET.get('max_price')\n        phone_list = Phone.objects.all().order_by(\"-id\")\n        # if brand:\n        #     phone_list = phone_list.filter(brand_name__icontains=brand)\n        # if min_price:",
+        "peekOfCode": "User = get_user_model()\nclass Home(View):\n    def get(self, request):\n        brand = request.GET.get('brand')\n        min_price = request.GET.get('min_price')\n        max_price = request.GET.get('max_price')\n        phone_list = Phone.objects.all().order_by(\"-id\")\n        if brand:\n            phone_list = phone_list.filter(brand_name__id=brand)\n        # if min_price:",
         "detail": "apps.shop.views",
         "documentation": {}
     },
