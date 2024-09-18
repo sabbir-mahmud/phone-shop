@@ -595,6 +595,22 @@
         "documentation": {}
     },
     {
+        "label": "EmptyPage",
+        "importPath": "django.core.paginator",
+        "description": "django.core.paginator",
+        "isExtraImport": true,
+        "detail": "django.core.paginator",
+        "documentation": {}
+    },
+    {
+        "label": "PageNotAnInteger",
+        "importPath": "django.core.paginator",
+        "description": "django.core.paginator",
+        "isExtraImport": true,
+        "detail": "django.core.paginator",
+        "documentation": {}
+    },
+    {
         "label": "Paginator",
         "importPath": "django.core.paginator",
         "description": "django.core.paginator",
@@ -943,7 +959,7 @@
         "kind": 2,
         "importPath": "apps.shop.context_processor",
         "description": "apps.shop.context_processor",
-        "peekOfCode": "def carts(request):\n    count = 0\n    if Cart.objects.all().exists():\n        count = Cart.objects.filter(user_id=request.user).count()\n    return {\"count\": count}",
+        "peekOfCode": "def carts(request):\n    count = 0\n    if Cart.objects.all().exists():\n        count = Cart.objects.filter(user_id=request.user).count(\n        ) if request.user.is_authenticated else 0\n    return {\"count\": count}",
         "detail": "apps.shop.context_processor",
         "documentation": {}
     },
@@ -1060,7 +1076,7 @@
         "kind": 6,
         "importPath": "apps.shop.views",
         "description": "apps.shop.views",
-        "peekOfCode": "class Home(View):\n    def get(self, request):\n        phones = Phone.objects.all().order_by(\"-id\")[:9]\n        context = {\n            \"phones\": phones\n        }\n        return render(request, 'shop/home.html', context)\nclass AddToCarT(View):\n    def get(self, request, pk):\n        phone = Phone.objects.get(id=pk)",
+        "peekOfCode": "class Home(View):\n    def get(self, request):\n        brand = request.GET.get('brand')\n        min_price = request.GET.get('min_price')\n        max_price = request.GET.get('max_price')\n        phone_list = Phone.objects.all().order_by(\"-id\")\n        # if brand:\n        #     phone_list = phone_list.filter(brand_name__icontains=brand)\n        # if min_price:\n        #     phone_list = phone_list.filter(price__gte=min_price)",
         "detail": "apps.shop.views",
         "documentation": {}
     },
@@ -1159,7 +1175,7 @@
         "kind": 5,
         "importPath": "apps.shop.views",
         "description": "apps.shop.views",
-        "peekOfCode": "stripe.api_key = \"sk_test_51L0hxlEZlpATTp015WVNZvrzVgm1NSJpOgyGwploURgse2aEcf3PpIS1gCuu7gbWG0xf6QTXKAUsSVNxZUCSQAgG00H5nfUUcD\"\nUser = get_user_model()\nclass Home(View):\n    def get(self, request):\n        phones = Phone.objects.all().order_by(\"-id\")[:9]\n        context = {\n            \"phones\": phones\n        }\n        return render(request, 'shop/home.html', context)\nclass AddToCarT(View):",
+        "peekOfCode": "stripe.api_key = \"sk_test_51L0hxlEZlpATTp015WVNZvrzVgm1NSJpOgyGwploURgse2aEcf3PpIS1gCuu7gbWG0xf6QTXKAUsSVNxZUCSQAgG00H5nfUUcD\"\nUser = get_user_model()\nclass Home(View):\n    def get(self, request):\n        brand = request.GET.get('brand')\n        min_price = request.GET.get('min_price')\n        max_price = request.GET.get('max_price')\n        phone_list = Phone.objects.all().order_by(\"-id\")\n        # if brand:\n        #     phone_list = phone_list.filter(brand_name__icontains=brand)",
         "detail": "apps.shop.views",
         "documentation": {}
     },
@@ -1168,7 +1184,7 @@
         "kind": 5,
         "importPath": "apps.shop.views",
         "description": "apps.shop.views",
-        "peekOfCode": "User = get_user_model()\nclass Home(View):\n    def get(self, request):\n        phones = Phone.objects.all().order_by(\"-id\")[:9]\n        context = {\n            \"phones\": phones\n        }\n        return render(request, 'shop/home.html', context)\nclass AddToCarT(View):\n    def get(self, request, pk):",
+        "peekOfCode": "User = get_user_model()\nclass Home(View):\n    def get(self, request):\n        brand = request.GET.get('brand')\n        min_price = request.GET.get('min_price')\n        max_price = request.GET.get('max_price')\n        phone_list = Phone.objects.all().order_by(\"-id\")\n        # if brand:\n        #     phone_list = phone_list.filter(brand_name__icontains=brand)\n        # if min_price:",
         "detail": "apps.shop.views",
         "documentation": {}
     },

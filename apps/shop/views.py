@@ -3,7 +3,7 @@ from decimal import Decimal
 
 import stripe
 from django.contrib.auth import get_user_model
-from django.core.paginator import Paginator
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.db.models import Q
 from django.shortcuts import redirect, render
 from django.views import View
@@ -19,7 +19,27 @@ User = get_user_model()
 
 class Home(View):
     def get(self, request):
-        phones = Phone.objects.all().order_by("-id")[:9]
+        brand = request.GET.get('brand')
+        min_price = request.GET.get('min_price')
+        max_price = request.GET.get('max_price')
+        phone_list = Phone.objects.all().order_by("-id")
+
+        # if brand:
+        #     phone_list = phone_list.filter(brand_name__icontains=brand)
+        # if min_price:
+        #     phone_list = phone_list.filter(price__gte=min_price)
+        # if max_price:
+        #     phone_list = phone_list.filter(price__lte=max_price)
+
+        page = request.GET.get('page', 1)
+        paginator = Paginator(phone_list, 12)
+
+        try:
+            phones = paginator.page(page)
+        except PageNotAnInteger:
+            phones = paginator.page(1)
+        except EmptyPage:
+            phones = paginator.page(paginator.num_pages)
 
         context = {
             "phones": phones
